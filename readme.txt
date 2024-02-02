@@ -4,7 +4,7 @@ Je suis Alex Chevarie, un développeur passionné ayant récemment terminé ma f
 Grâce à mon expérience chez DRC Solutions, j'ai perfectionné mes compétences techniques et acquis une solide expérience professionnelle. Je suis passionné par les nouvelles technologies, l'innovation et l'apprentissage continu.
 
 Mon portfolio regroupe des projets intéressants à consulter que j'ai réalisé au cours des dernières années :
-  - Magasin TGM
+  - 
   - 
 
 Je suis convaincu que mon engagement, ma créativité et ma passion font de moi un atout pour toute équipe de développement.
