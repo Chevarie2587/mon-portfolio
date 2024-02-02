@@ -8,19 +8,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <section class="hero is-dark is-fullheight">
+    <header class="hero is-dark is-bold">
         <div class="hero-body">
-            <div class="container">
+            <div class="container has-text-centered">
                 <h1 class="title is-1">Mon Portfolio</h1>
                 <h2 class="subtitle is-3">Développeur Web</h2>
-                <p class="is-size-5">Bienvenue sur mon portfolio. Voici quelques-uns de mes projets récents.</p>
+                <p class="is-size-5">Bienvenue sur mon portfolio. Découvrez mes projets et mes contributions sur GitHub.</p>
             </div>
         </div>
-    </section>
+    </header>
 
     <section class="section">
         <div class="container">
-            <h2 class="title is-2">Mon expérience professionnelle</h2>
+            <h2 class="title is-2">À propos de DRC Solutions</h2>
             <p>DRC Solutions est une société spécialisée dans la conception de logiciels pour une variété de clients. Nous nous concentrons particulièrement sur les logiciels comptables, fournissant des solutions innovantes pour répondre aux besoins spécifiques de nos clients.</p>
             <p>En tant que développeur chez DRC Solutions, j'ai eu l'opportunité de travailler sur une variété de projets, notamment le développement de modules, la migration de WinForms vers WPF, ainsi que le développement avec ASP.NET Blazor.</p>
             <p>Je me spécialise principalement dans la conception d'interfaces utilisateur (UI) et le développement front-end, apportant une attention particulière à la convivialité et à l'expérience utilisateur.</p>
@@ -46,6 +46,28 @@
         </div>
     </section>
 
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                © 2024 Mon Portfolio. Tous droits réservés.
+            </p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
+<style>
+.hero.is-bold {
+    background-image: url('banner.jpg');
+    background-size: cover;
+    background-position: center center;
+    color: #ffffff;
+}
+
+.footer {
+    background-color: #363636;
+    color: #ffffff;
+    padding: 20px 0;
+}
+</style>
