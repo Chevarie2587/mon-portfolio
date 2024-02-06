@@ -6,24 +6,168 @@
     <title>Portfolio - Thème sombre</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <header class="hero is-dark is-bold">
+    <header class="hero is-dark is-bold lang-fr">
         <div class="hero-body">
             <div class="container has-text-centered">
+                <h5 class="subtitle is-6">Alex Chevarie</h5>
                 <h1 class="title is-1">Mon Portfolio</h1>
-                <h2 class="subtitle is-3">Développeur Web</h2>
-                <p class="is-size-5">Bienvenue sur mon portfolio. Découvrez mes projets et mes contributions sur GitHub.</p>
+                <h2 class="subtitle is-3">Développeur</h2>
+            </div>
+        </div>
+    </header>
+    
+    <header class="hero is-dark is-bold lang-en" style="display: none">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h5 class="subtitle is-6">Alex Chevarie</h5>
+                <h1 class="title is-1">My Portfolio</h1>
+                <h2 class="subtitle is-3">Developer</h2>
             </div>
         </div>
     </header>
 
+    <section class="mt-4 lang-fr">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-2">À propos de moi</h2>
+                    <p>Je suis un développeur de 20 ans récemment diplômé en Techniques de l'informatique et à la recherche d'opportunités qui me permettront de mettre en pratique mes compétences et de continuer à me développer professionnellement. Je suis à l’aise avec plusieurs frameworks/languages de programmation et j’ai un grand intérêt pour apprendre des technologies. J'ai eu l'opportunité de travailler en tant que développeur tout au long de ma dernière année d'études et de continuer à temps plein depuis janvier 2023 pour expérimenter la création de logiciels et de solutions Web sur le terrain.</p>
+                </div>
+                <div class="column">
+                    <img src="pdp.png" alt="Photo de profil" width="150" height="183">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-4 lang-en" style="display: none">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-2">About me</h2>
+                    <p>I am a 20-year-old developer recently graduated in Computer Techniques and actively seeking opportunities to apply my skills and further my professional development. I am proficient with several programming languages and frameworks and have a keen interest in learning new technologies. I had the opportunity to work as a developer throughout my final year of studies and have been working full-time since January 2023, gaining practical experience in software and web solutions development.</p>
+                </div>
+                <div class="column">
+                    <img src="pdp.png" alt="Photo de profil" width="150" height="183">
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section class="section">
         <div class="container">
-            <h2 class="title is-2">À propos de DRC Solutions</h2>
-            <p>DRC Solutions est une société spécialisée dans la conception de logiciels pour une variété de clients. Nous nous concentrons particulièrement sur les logiciels comptables, fournissant des solutions innovantes pour répondre aux besoins spécifiques de nos clients.</p>
-            <p>En tant que développeur chez DRC Solutions, j'ai eu l'opportunité de travailler sur une variété de projets, notamment le développement de modules, la migration de WinForms vers WPF, ainsi que le développement avec ASP.NET Blazor.</p>
-            <p>Je me spécialise principalement dans la conception d'interfaces utilisateur (UI) et le développement front-end, apportant une attention particulière à la convivialité et à l'expérience utilisateur.</p>
+            <div class="columns is-multiline is-centered">
+                <div class="column is-one-quarter has-text-centered">
+                    <p class="is-size-4 has-text-weight-bold">C#/VB.NET</p>
+                </div>
+                <div class="column is-one-quarter has-text-centered">
+                    <span class="icon is-large">
+                        <p class="is-size-4 has-text-weight-bold">C++</p>
+                    </span>
+                </div>
+                <div class="column is-one-quarter has-text-centered">
+                    <span class="icon is-large">
+                        <i class="fas fa-code fa-3x"></i>
+                    </span>
+                    <p>HTML/CSS</p>
+                </div>
+                <div class="column is-one-quarter has-text-centered">
+                    <span class="icon is-large">
+                        <i class="fab fa-php fa-3x"></i>
+                    </span>
+                    <p>PHP</p>
+                </div>
+                <div class="column is-one-quarter has-text-centered">
+                    <span class="icon is-large">
+                        <i class="fas fa-database fa-3x"></i>
+                    </span>
+                    <p>SQL Server/MySQL</p>
+                </div>
+                <div class="column is-one-quarter has-text-centered">
+                    <span class="icon is-large">
+                        <i class="fab fa-js fa-3x"></i>
+                    </span>
+                    <p>JavaScript/JQuery/JSON</p>
+                </div>
+                <div class="column is-one-quarter has-text-centered">
+                    <p class="is-size-4 has-text-weight-bold">ASP.NET 4.8/6/7</p>
+                </div>
+                <div class="column is-one-quarter has-text-centered">
+                    <span class="icon is-large">
+                        <i class="fas fa-database fa-3x"></i>
+                    </span>
+                    <p>Entity Framework</p>
+                </div>
+                <div class="column is-one-quarter has-text-centered">
+                    <span class="icon is-large">
+                        <i class="fab fa-symfony fa-3x"></i>
+                    </span>
+                    <p>Symfony</p>
+                </div>
+                <div class="column is-one-quarter has-text-centered">
+                    <span class="icon is-large">
+                        <i class="fab fa-windows fa-3x"></i>
+                    </span>
+                    <p>WPF</p>
+                </div>
+                <div class="column is-one-quarter has-text-centered">
+                    <span class="icon is-large">
+                        <i class="fab fa-bootstrap fa-3x"></i>
+                    </span>
+                    <p>Bootstrap</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container lang-fr">
+            <div class="columns is-centered">
+                <div class="column is-two-thirds has-text-centered">
+                    <h2 class="title is-4">Téléchargez mon CV</h2>
+                    <div class="buttons is-centered is-dark">
+                        <a href="CV_AlexChevarie.pdf" download class="button is-dark is-small">
+                            <span class="icon">
+                                <i class="fas fa-download"></i>
+                            </span>
+                            <span>Télécharger le CV</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container lang-en" style="display: none">
+            <div class="columns is-centered">
+                <div class="column is-two-thirds has-text-centered">
+                    <h2 class="title is-4">Download my CV</h2>
+                    <div class="buttons is-centered is-dark">
+                        <a href="CV_AlexChevarie.pdf" download class="button is-dark is-small">
+                            <span class="icon">
+                                <i class="fas fa-download"></i>
+                            </span>
+                            <span>Download CV</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section lang-fr">
+        <div class="container">
+            <h2 class="title is-2">Développeur chez DRC Solutions</h2>
+            <p>DRC Solutions est une société spécialisée dans la conception de logiciels pour une variété de clients. Nous nous concentrons particulièrement sur les logiciels comptables, fournissant des solutions innovantes pour répondre aux besoins spécifiques de nos clients. En tant que développeur chez DRC Solutions, j'ai eu l'opportunité de travailler sur une variété de projets, notamment le développement de modules, la migration de WinForms vers WPF, ainsi que le développement avec ASP.NET Blazor. Je me spécialise principalement dans la conception d'interfaces utilisateur (UI) et le développement front-end, apportant une attention particulière à la convivialité et à l'expérience utilisateur.</p>
+        </div>
+    </section>
+
+    <section class="section lang-en" style="display: none">
+        <div class="container">
+            <h2 class="title is-2">Developer at DRC Solutions</h2>
+            <p class="developer-description">DRC Solutions is a company specialized in software design for a variety of clients. We particularly focus on accounting software, providing innovative solutions to meet our clients' specific needs. As a developer at DRC Solutions, I've had the opportunity to work on a variety of projects, including module development, migration from WinForms to WPF, as well as development with ASP.NET Blazor. My primary focus lies in user interface (UI) design and front-end development, paying close attention to user-friendliness and user experience.</p>
         </div>
     </section>
 
@@ -47,14 +191,64 @@
     </section>
 
     <footer class="footer">
+        <!-- Vos boutons en bas de la page -->
+        <div class="container">
+            <div class="columns is-vcentered">
+                <!-- Première colonne pour les deux premiers boutons -->
+                <div class="column">
+                    <button class="button is-dark is-medium" onclick="scrollToTop()">Remonter</button>
+                    <button class="button is-dark is-medium" onclick="window.location.href='mailto:alexchevarie@hotmail.ca'">Me Contacter</button>
+                </div>
+                <!-- Deuxième colonne pour les deux derniers boutons -->
+                <div class="column has-text-right">
+                    <button class="button is-dark is-medium" onclick="showFrenchContent()">Français</button>
+                    <button class="button is-dark is-medium" onclick="showEnglishContent()">English</button>
+                </div>
+            </div>
+        </div>
         <div class="content has-text-centered">
             <p>
-                © 2024 Mon Portfolio. Tous droits réservés.
+                © 2024 Mon Portfolio - Alex Chevarie
             </p>
         </div>
     </footer>
+    <script>
+        // Fonction pour faire remonter la page
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-    <script src="script.js"></script>
+        // Fonction pour ouvrir/fermer la barre latérale
+        const toggleButton = document.getElementById('toggleButton');
+        const sidebar = document.querySelector('.sidebar');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            if (sidebar.classList.contains('open')) {
+                toggleButton.textContent = 'Fermer';
+            } else {
+                toggleButton.textContent = 'Ouvrir';
+            }
+        });
+
+        function showFrenchContent() {
+        document.querySelectorAll('.lang-fr').forEach(function(el) {
+            el.style.display = 'block';
+        });
+        document.querySelectorAll('.lang-en').forEach(function(el) {
+            el.style.display = 'none';
+        });
+    }
+
+    function showEnglishContent() {
+        document.querySelectorAll('.lang-fr').forEach(function(el) {
+            el.style.display = 'none';
+        });
+        document.querySelectorAll('.lang-en').forEach(function(el) {
+            el.style.display = 'block';
+        });
+    }
+    </script>
 </body>
 </html>
 <style>
@@ -69,5 +263,19 @@
     background-color: #363636;
     color: #ffffff;
     padding: 20px 0;
+}
+.sidebar {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.sidebar .button {
+    width: 150px;
 }
 </style>
