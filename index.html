@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Thème sombre</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header class="hero is-dark is-bold lang-fr">
@@ -37,7 +37,7 @@
                     <p>Je suis un développeur de 20 ans récemment diplômé en Techniques de l'informatique et à la recherche d'opportunités qui me permettront de mettre en pratique mes compétences et de continuer à me développer professionnellement. Je suis à l’aise avec plusieurs frameworks/languages de programmation et j’ai un grand intérêt pour apprendre des technologies. J'ai eu l'opportunité de travailler en tant que développeur tout au long de ma dernière année d'études et de continuer à temps plein depuis janvier 2023 pour expérimenter la création de logiciels et de solutions Web sur le terrain.</p>
                 </div>
                 <div class="column">
-                    <img src="pdp.png" alt="Photo de profil" width="150" height="183">
+                    <img src="img/pdp.png" alt="Photo de profil" width="150" height="183" class="zoomable-image">
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
                     <p>I am a 20-year-old developer recently graduated in Computer Techniques and actively seeking opportunities to apply my skills and further my professional development. I am proficient with several programming languages and frameworks and have a keen interest in learning new technologies. I had the opportunity to work as a developer throughout my final year of studies and have been working full-time since January 2023, gaining practical experience in software and web solutions development.</p>
                 </div>
                 <div class="column">
-                    <img src="pdp.png" alt="Photo de profil" width="150" height="183">
+                    <img src="img/pdp.png" alt="Photo de profil" width="150" height="183" class="zoomable-image">
                 </div>
             </div>
         </div>
@@ -157,38 +157,83 @@
         </div>
     </section>
 
-    <section class="section lang-fr">
+    <section class="section lang-fr mb-0">
         <div class="container">
             <h2 class="title is-2">Développeur chez DRC Solutions</h2>
             <p>DRC Solutions est une société spécialisée dans la conception de logiciels pour une variété de clients. Nous nous concentrons particulièrement sur les logiciels comptables, fournissant des solutions innovantes pour répondre aux besoins spécifiques de nos clients. En tant que développeur chez DRC Solutions, j'ai eu l'opportunité de travailler sur une variété de projets, notamment le développement de modules, la migration de WinForms vers WPF, ainsi que le développement avec ASP.NET Blazor. Je me spécialise principalement dans la conception d'interfaces utilisateur (UI) et le développement front-end, apportant une attention particulière à la convivialité et à l'expérience utilisateur.</p>
         </div>
     </section>
 
-    <section class="section lang-en" style="display: none">
+    <section class="section lang-en mb-0" style="display: none">
         <div class="container">
             <h2 class="title is-2">Developer at DRC Solutions</h2>
             <p class="developer-description">DRC Solutions is a company specialized in software design for a variety of clients. We particularly focus on accounting software, providing innovative solutions to meet our clients' specific needs. As a developer at DRC Solutions, I've had the opportunity to work on a variety of projects, including module development, migration from WinForms to WPF, as well as development with ASP.NET Blazor. My primary focus lies in user interface (UI) design and front-end development, paying close attention to user-friendliness and user experience.</p>
         </div>
     </section>
 
-    <section class="section">
         <div class="container">
-            <!-- Ajoutez ici vos projets -->
             <div class="card">
                 <div class="card-content">
-                    <p class="title">Projet 1</p>
-                    <p class="subtitle">(Section du portfolio en contruction)</p>
+                    <p class="title">Conception d'interfaces WPF</p>
+                    <p class="subtitle">J'ai conçus divers interfaces front-end et UserControls WPF (Xaml) au sein de l'application comptable.</p>
+                    <p class="subtitle">Module GIO (Gestion Intégré des Opérations)</p>
+                    <div class="container">
+                        <div class="columns is-multiline">
+                          <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                            <img src="img/GIOWPF.png" alt="GIOWPF" class="zoomable-image">
+                          </div>
+                          <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                            <img src="img/GIOWPF2.png" alt="GIOWPF2" class="zoomable-image">
+                          </div>
+                        </div>
+                      </div>
+                    <p class="subtitle">Module GOP (Gestion des Opérations Pro)</p>
+                    <div class="container">
+                        <div class="columns is-multiline">
+                          <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                            <img src="img/GOPWPF.png" alt="GIOWPF" class="zoomable-image">
+                          </div>
+                          <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                            <img src="img/GOPWPF2.png" alt="GIOWPF2" class="zoomable-image">
+                          </div>
+                        </div>
+                      </div>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-content">
-                    <p class="title">Projet 2</p>
-                    <p class="subtitle">(Section du portfolio en contruction)</p>
+                    <p class="title">Conception d'interfaces Web</p>
+                    <p class="subtitle">J'ai contribué à l'application comptable Web ASP.Net avec la conception de plusieurs modules en front-end et back-end (VB.Net).</p>
+                    <p class="subtitle">Module GIO (Gestion Intégré des Opérations)</p>
+                    <div class="container">
+                        <div class="columns is-multiline">
+                          <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                            <img src="img/GIOWEB.png" alt="GIOWPF" class="zoomable-image">
+                          </div>
+                          <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                            <img src="img/GIOWEB2.png" alt="GIOWPF2" class="zoomable-image">
+                          </div>
+                        </div>
+                      </div>
+                    <p class="subtitle mb-0">Module GCP (Gestion Calendrier Pro)</p>
+                    <p class="my-2">Ce module utilise le plugin de calendrier Javascript FullCalendar pour gèrer de nombreux événements de différents types reliés à des documents gérés dans d'autres modules de l'application. On peut ajouter des notes, des événements de documents, des suivis, des tâches d'employés par exemple.</p>
+                    <div class="container">
+                        <div class="columns is-multiline">
+                          <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                            <img src="img/GCPWEB.png" alt="GIOWPF" class="zoomable-image">
+                          </div>
+                          <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                            <img src="img/GCPWEB2.png" alt="GIOWPF2" class="zoomable-image">
+                          </div>
+                          <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                            <img src="img/GCPWEB3.png" alt="GIOWPF2" class="zoomable-image">
+                          </div>
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>
-    </section>
 
     <footer class="footer">
         <!-- Vos boutons en bas de la page -->
@@ -213,23 +258,6 @@
         </div>
     </footer>
     <script>
-        // Fonction pour faire remonter la page
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Fonction pour ouvrir/fermer la barre latérale
-        const toggleButton = document.getElementById('toggleButton');
-        const sidebar = document.querySelector('.sidebar');
-
-        toggleButton.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-            if (sidebar.classList.contains('open')) {
-                toggleButton.textContent = 'Fermer';
-            } else {
-                toggleButton.textContent = 'Ouvrir';
-            }
-        });
 
         function showFrenchContent() {
         document.querySelectorAll('.lang-fr').forEach(function(el) {
@@ -248,6 +276,12 @@
             el.style.display = 'block';
         });
     }
+
+        $(document).ready(function() {
+    $('.zoomable-image').hover(function() {
+        $(this).toggleClass('is-expanded');
+    });
+    });
     </script>
 </body>
 </html>
@@ -277,5 +311,23 @@
 
 .sidebar .button {
     width: 150px;
+}
+
+    /* Pour une meilleure présentation des images */
+    .image-container {
+      margin-bottom: 20px;
+    }
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+.zoomable-image {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.zoomable-image.is-expanded {
+  transform: scale(1.3); /* Augmentez la valeur de l'échelle pour agrandir davantage */
 }
 </style>
