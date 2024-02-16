@@ -201,9 +201,8 @@
             </div>
         </div>
     </section>
-
-    <section class="section lang-fr mb-0">
-        <div class="container">
+    <section class="section">
+        <div class="container lang-fr">
             <h2 class="title is-2">Développeur chez DRC Solutions</h2>
             <p><a href="https://drcsolutions.ca/" target="_blank">DRC Solutions</a> est une compagnie "startup" de
                 Lac-Beaucport spécialisée dans la conception de logiciels pour une variété de
@@ -216,93 +215,178 @@
                 développement front-end, apportant une attention
                 particulière à la convivialité et à l'expérience utilisateur.</p>
         </div>
-    </section>
 
-    <div class="container">
-        <div class="card my-2">
-            <div class="card-content">
-                <div class="container">
-                    <div class="columns is-multiline">
-                        <div class="column is-11-desktop">
-                            <p class="title">Conception d'interfaces WPF</p>
-                            <p class="subtitle">J'ai conçu diverses interfaces front-end et UserControls WPF (Xaml) au
-                                sein
-                                de l'application comptable DRC-PRO.</p>
+        <div class="container">
+            <div class="card my-2">
+                <div class="card-content">
+                    <div class="container">
+                        <div class="columns is-multiline">
+                            <div class="column is-11-desktop">
+                                <p class="title">Conception d'interfaces WPF</p>
+                                <p class="subtitle">J'ai conçu diverses interfaces front-end et UserControls WPF (Xaml)
+                                    au
+                                    sein
+                                    de l'application comptable DRC-PRO.</p>
+                            </div>
+                            <div class="column is-1-desktop is-flex is-justify-content-flex-end is-align-items-center">
+                                <button class="button is-square" onclick="toggleExpanderContent(this)">
+                                    <span class="icon">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </span>
+                                </button>
+
+                                <!-- Bouton carré avec une flèche vers le haut -->
+                                <button class="button is-square hidden" onclick="toggleExpanderContent(this)">
+                                    <span class="icon">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </span>
+                                </button>
+                            </div>
                         </div>
-                        <div class="column is-1-desktop is-flex is-justify-content-flex-end is-align-items-center">
-                            <button class="button is-square" onclick="toggleExpanderContent(this)">
-                                <span class="icon">
-                                    <i class="fas fa-arrow-down"></i>
-                                </span>
-                            </button>
+                    </div>
 
-                            <!-- Bouton carré avec une flèche vers le haut -->
-                            <button class="button is-square hidden" onclick="toggleExpanderContent(this)">
-                                <span class="icon">
-                                    <i class="fas fa-arrow-up"></i>
-                                </span>
-                            </button>
+                    <div class="expander-content hidden my-2">
+                        <p class="subtitle mb-0">Module GIO (Gestion Intégrée des Opérations)</p>
+                        <p class="my-2">Ce module du logicel comptable DRC-PRO permet au gestionnaire d'avoir la vue
+                            globale
+                            des
+                            informations et d'accéder facilement aux détails de
+                            celles-ci sans devoir naviguer dans les différents modules. Celui-ci est un peu spécial
+                            puisqu'il
+                            comporte des UserControl Winforms dans une fenêtre WPF.
+                            Parce qu'une conversion complète de l'application originale en Winforms est en cours,
+                            certaines
+                            sections de l'application WPF doivent comprendre des
+                            UserControls Winforms en attendant que leur équivalent en WPF soient développé. J'ai
+                            contribué à
+                            mettre en place
+                            plusieurs éléments de l'affichage comme l'intégration du UserControl Winforms, le menu dans
+                            le
+                            haut ainsi que l'affichage de la liste des rapports.</p>
+                        <div class="container">
+                            <div class="columns is-multiline">
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/GIOWPF.png" target="_blank">
+                                        <img src="img/GIOWPF.png" alt="GIOWPF" class="zoomable-image">
+                                    </a>
+                                </div>
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/GIOWPF2.png" target="_blank">
+                                        <img src="img/GIOWPF2.png" alt="GIOWPF2" class="zoomable-image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="subtitle mb-0">Module GOP (Gestion des Opérations Pro)</p>
+                        <p class="my-2">GOP est le coeur de l'application. C'est dans ce module que peuvent être créées
+                            les
+                            soumissions, commandes et factures, les items à transférer
+                            à la production. Je m'occupe de l'entièreté du développement de l'interface utilisateur en
+                            WPF.
+                            Autant le design, les éléments visuels, que la logique en back-end pour faire
+                            fonctionner le tout. Le UI est composé de controls utilisateurs de la librairie <a
+                                href="https://github.com/HandyOrg/HandyControl" target="_blank">HandyControl</a>. Ces
+                            cards
+                            qui contienent
+                            les informations des documents et des clients sont des controls custom qui hérite de
+                            l'Expander
+                            et qui s'agrandissent vers le bas quand la souris de l'utilisateur est au dessus
+                            de la card, ou si elle est "verouillée" avec le bouton rond cadenas. Cela permet de garder
+                            une
+                            vue d'ensemble des informations et de consulter les détails facilement.
+                        </p>
+
+                        <div class="container is-centered">
+                            <div class="columns is-multiline">
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile is-centered">
+                                    <div class="image-container">
+                                        <a href="img/GOPWPF.png" target="_blank">
+                                            <img src="img/GOPWPF.png" alt="GOPWPF" class="zoomable-image">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="expander-content hidden my-2">
-                    <p class="subtitle mb-0">Module GIO (Gestion Intégrée des Opérations)</p>
-                    <p class="my-2">Ce module du logicel comptable DRC-PRO permet au gestionnaire d'avoir la vue
-                        globale
-                        des
-                        informations et d'accéder facilement aux détails de
-                        celles-ci sans devoir naviguer dans les différents modules. Celui-ci est un peu spécial
-                        puisqu'il
-                        comporte des UserControl Winforms dans une fenêtre WPF.
-                        Parce qu'une conversion complète de l'application originale en Winforms est en cours,
-                        certaines
-                        sections de l'application WPF doivent comprendre des
-                        UserControls Winforms en attendant que leur équivalent en WPF soient développé. J'ai
-                        contribué à
-                        mettre en place
-                        plusieurs éléments de l'affichage comme l'intégration du UserControl Winforms, le menu dans
-                        le
-                        haut ainsi que l'affichage de la liste des rapports.</p>
+            </div>
+            <div class="card my-2">
+                <div class="card-content">
                     <div class="container">
                         <div class="columns is-multiline">
-                            <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                <a href="img/GIOWPF.png" target="_blank">
-                                    <img src="img/GIOWPF.png" alt="GIOWPF" class="zoomable-image">
-                                </a>
+                            <div class="column is-11-desktop">
+                                <p class="title">Conception d'interfaces Web</p>
+                                <p class="subtitle">J'ai contribué à l'application comptable Web ASP.Net avec la
+                                    conception
+                                    de
+                                    plusieurs
+                                    modules en front-end et back-end (VB.Net).</p>
                             </div>
-                            <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                <a href="img/GIOWPF2.png" target="_blank">
-                                    <img src="img/GIOWPF2.png" alt="GIOWPF2" class="zoomable-image">
-                                </a>
+                            <div class="column is-1-desktop is-flex is-justify-content-flex-end is-align-items-center">
+                                <button class="button is-square" onclick="toggleExpanderContent(this)">
+                                    <span class="icon">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </span>
+                                </button>
+
+                                <!-- Bouton carré avec une flèche vers le haut -->
+                                <button class="button is-square hidden" onclick="toggleExpanderContent(this)">
+                                    <span class="icon">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </span>
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <p class="subtitle mb-0">Module GOP (Gestion des Opérations Pro)</p>
-                    <p class="my-2">GOP est le coeur de l'application. C'est dans ce module que peuvent être créées
-                        les
-                        soumissions, commandes et factures, les items à transférer
-                        à la production. Je m'occupe de l'entièreté du développement de l'interface utilisateur en
-                        WPF.
-                        Autant le design, les éléments visuels, que la logique en back-end pour faire
-                        fonctionner le tout. Le UI est composé de controls utilisateurs de la librairie <a
-                            href="https://github.com/HandyOrg/HandyControl" target="_blank">HandyControl</a>. Ces
-                        cards
-                        qui contienent
-                        les informations des documents et des clients sont des controls custom qui hérite de
-                        l'Expander
-                        et qui s'agrandissent vers le bas quand la souris de l'utilisateur est au dessus
-                        de la card, ou si elle est "verouillée" avec le bouton rond cadenas. Cela permet de garder
-                        une
-                        vue d'ensemble des informations et de consulter les détails facilement.
-                    </p>
-
-                    <div class="container is-centered">
-                        <div class="columns is-multiline">
-                            <div class="column is-6-desktop is-12-tablet is-12-mobile is-centered">
-                                <div class="image-container">
-                                    <a href="img/GOPWPF.png" target="_blank">
-                                        <img src="img/GOPWPF.png" alt="GOPWPF" class="zoomable-image">
+                    <div class="expander-content hidden my-2">
+                        <p class="subtitle">Module GIO (Gestion Intégrée des Opérations)</p>
+                        <div class="container">
+                            <div class="columns is-multiline">
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/GIOWEB.png" target="_blank">
+                                        <img src="img/GIOWEB.png" alt="GIOWEB" class="zoomable-image">
+                                    </a>
+                                </div>
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/GIOWEB2.png" target="_blank">
+                                        <img src="img/GIOWEB2.png" alt="GIOWEB2" class="zoomable-image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="subtitle mb-0">Module GCP (Gestion Calendrier Pro)</p>
+                        <p class="my-2">Ce module utilise le plugin de calendrier Javascript FullCalendar pour gérer de
+                            nombreux
+                            événements de différents types reliés à des documents gérés dans d'autres modules de
+                            l'application.
+                            On peut ajouter des notes, des événements de documents, des suivis, des tâches d'employés
+                            par
+                            exemple.</p>
+                        <div class="container">
+                            <div class="columns is-multiline">
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/GCPWEB.png" target="_blank">
+                                        <img src="img/GCPWEB.png" alt="GCPWEB" class="zoomable-image">
+                                    </a>
+                                </div>
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/GCPWEB2.png" target="_blank">
+                                        <img src="img/GCPWEB2.png" alt="GCPWEB2" class="zoomable-image">
+                                    </a>
+                                </div>
+                                <div class="column is-4-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/GCPWEB3.png" target="_blank">
+                                        <img src="img/GCPWEB3.png" alt="GCPWEB3" class="zoomable-image">
+                                    </a>
+                                </div>
+                                <div class="column is-4-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/GCPWEB4.png" target="_blank">
+                                        <img src="img/GCPWEB4.png" alt="GCPWEB4" class="zoomable-image">
+                                    </a>
+                                </div>
+                                <div class="column is-4-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/GCPWEB5.png" target="_blank">
+                                        <img src="img/GCPWEB5.png" alt="GCPWEB5" class="zoomable-image">
                                     </a>
                                 </div>
                             </div>
@@ -311,123 +395,103 @@
                 </div>
             </div>
         </div>
-        <div class="card my-2">
-            <div class="card-content">
-                <div class="container">
-                    <div class="columns is-multiline">
-                        <div class="column is-11-desktop">
-                            <p class="title">Conception d'interfaces Web</p>
-                            <p class="subtitle">J'ai contribué à l'application comptable Web ASP.Net avec la conception
-                                de
-                                plusieurs
-                                modules en front-end et back-end (VB.Net).</p>
-                        </div>
-                        <div class="column is-1-desktop is-flex is-justify-content-flex-end is-align-items-center">
-                            <button class="button is-square" onclick="toggleExpanderContent(this)">
-                                <span class="icon">
-                                    <i class="fas fa-arrow-down"></i>
-                                </span>
-                            </button>
-
-                            <!-- Bouton carré avec une flèche vers le haut -->
-                            <button class="button is-square hidden" onclick="toggleExpanderContent(this)">
-                                <span class="icon">
-                                    <i class="fas fa-arrow-up"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="expander-content hidden my-2">
-                    <p class="subtitle">Module GIO (Gestion Intégrée des Opérations)</p>
-                    <div class="container">
-                        <div class="columns is-multiline">
-                            <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                <a href="img/GIOWEB.png" target="_blank">
-                                    <img src="img/GIOWEB.png" alt="GIOWEB" class="zoomable-image">
-                                </a>
-                            </div>
-                            <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                <a href="img/GIOWEB2.png" target="_blank">
-                                    <img src="img/GIOWEB2.png" alt="GIOWEB2" class="zoomable-image">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="subtitle mb-0">Module GCP (Gestion Calendrier Pro)</p>
-                    <p class="my-2">Ce module utilise le plugin de calendrier Javascript FullCalendar pour gérer de
-                        nombreux
-                        événements de différents types reliés à des documents gérés dans d'autres modules de
-                        l'application.
-                        On peut ajouter des notes, des événements de documents, des suivis, des tâches d'employés par
-                        exemple.</p>
-                    <div class="container">
-                        <div class="columns is-multiline">
-                            <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                <a href="img/GCPWEB.png" target="_blank">
-                                    <img src="img/GCPWEB.png" alt="GCPWEB" class="zoomable-image">
-                                </a>
-                            </div>
-                            <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                <a href="img/GCPWEB2.png" target="_blank">
-                                    <img src="img/GCPWEB2.png" alt="GCPWEB2" class="zoomable-image">
-                                </a>
-                            </div>
-                            <div class="column is-4-desktop is-12-tablet is-12-mobile image-container">
-                                <a href="img/GCPWEB3.png" target="_blank">
-                                    <img src="img/GCPWEB3.png" alt="GCPWEB3" class="zoomable-image">
-                                </a>
-                            </div>
-                            <div class="column is-4-desktop is-12-tablet is-12-mobile image-container">
-                                <a href="img/GCPWEB4.png" target="_blank">
-                                    <img src="img/GCPWEB4.png" alt="GCPWEB4" class="zoomable-image">
-                                </a>
-                            </div>
-                            <div class="column is-4-desktop is-12-tablet is-12-mobile image-container">
-                                <a href="img/GCPWEB5.png" target="_blank">
-                                    <img src="img/GCPWEB5.png" alt="GCPWEB5" class="zoomable-image">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <section class="section lang-fr mb-0">
-        <div class="container">
-            <h2 class="title is-2">Projet Magasin TGM</h2>
+    </section>
+    <section class="section">
+        <div class="container lang-fr">
+            <h2 class="title is-2">Projets d'école</h2>
             <p></p>
         </div>
-    </section>
-    <div class="container">
-        <div class="card my-2">
-            <div class="card-content">
-                <div class="container">
-                    <div class="columns is-multiline">
-                        <div class="column is-11-desktop">
-                            <p class="title"></p>
-                            <p class="subtitle"></p>
-                        </div>
-                        <div class="column is-1-desktop is-flex is-justify-content-flex-end is-align-items-center">
-                            <button class="button is-square" onclick="toggleExpanderContent(this)">
-                                <span class="icon">
-                                    <i class="fas fa-arrow-down"></i>
-                                </span>
-                            </button>
+        <div class="container">
+            <div class="card my-2">
+                <div class="card-content">
+                    <div class="container">
+                        <div class="columns is-multiline">
+                            <div class="column is-11-desktop">
+                                <p class="title">Magasin TGM</p>
+                                <p class="subtitle"></p>
+                            </div>
+                            <div class="column is-1-desktop is-flex is-justify-content-flex-end is-align-items-center">
+                                <button class="button is-square" onclick="toggleExpanderContent(this)">
+                                    <span class="icon">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </span>
+                                </button>
 
-                            <!-- Bouton carré avec une flèche vers le haut -->
-                            <button class="button is-square hidden" onclick="toggleExpanderContent(this)">
-                                <span class="icon">
-                                    <i class="fas fa-arrow-up"></i>
-                                </span>
-                            </button>
+                                <!-- Bouton carré avec une flèche vers le haut -->
+                                <button class="button is-square hidden" onclick="toggleExpanderContent(this)">
+                                    <span class="icon">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="expander-content hidden my-2">
+                        <p class="subtitle">Catalogue d'items</p>
+                        <div class="container">
+                            <div class="columns is-multiline">
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/TGMCat.png" target="_blank">
+                                        <img src="img/TGMCat.png" alt="TGMCat" class="zoomable-image">
+                                    </a>
+                                </div>
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/TGMCat2.png" target="_blank">
+                                        <img src="img/TGMCat2.png" alt="TGMCat" class="zoomable-image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="subtitle">Gestion de réservations</p>
+                        <div class="container">
+                            <div class="columns is-multiline">
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/TGMReserv.png" target="_blank">
+                                        <img src="img/TGMReserv.png" alt="TGMReserv" class="zoomable-image">
+                                    </a>
+                                </div>
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/TGMReserv2.png" target="_blank">
+                                        <img src="img/TGMReserv2.png" alt="TGMReserv" class="zoomable-image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="subtitle">Gestion d'items</p>
+                        <div class="container">
+                            <div class="columns is-multiline">
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/TGMItem.png" target="_blank">
+                                        <img src="img/TGMItem.png" alt="TGMItem" class="zoomable-image">
+                                    </a>
+                                </div>
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/TGMItem2.png" target="_blank">
+                                        <img src="img/TGMItem2.png" alt="TGMItem" class="zoomable-image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="subtitle">Panier</p>
+                        <div class="container">
+                            <div class="columns is-multiline">
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/TGMPanier.png" target="_blank">
+                                        <img src="img/TGMPanier.png" alt="TGMPanier" class="zoomable-image">
+                                    </a>
+                                </div>
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
+                                    <a href="img/TGMPanier2.png" target="_blank">
+                                        <img src="img/TGMPanier2.png" alt="TGMPanier" class="zoomable-image">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <footer class="footer">
         <!-- Vos boutons en bas de la page -->
         <div class="container">
