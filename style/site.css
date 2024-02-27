@@ -1,0 +1,59 @@
+.body {
+    background-color: whitesmoke;
+}
+
+.hero.is-bold {
+    background-image: url('banner.jpg');
+    background-size: cover;
+    background-position: center center;
+    color: #ffffff;
+}
+
+.footer {
+    background-color: #363636;
+    color: #ffffff;
+    padding: 20px 0;
+}
+
+.sidebar {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.sidebar .button {
+    width: 150px;
+}
+
+/* Pour une meilleure présentation des images */
+.image-container {
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.zoomable-image {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.zoomable-image.is-expanded {
+    transform: scale(1.2);
+    /* Augmentez la valeur de l'échelle pour agrandir davantage */
+}
+
+.hidden {
+    display: none !important;
+}
+
+.expander-content.hidden {
+    display: none !important;
+}

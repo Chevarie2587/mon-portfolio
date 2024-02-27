@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Thème sombre</title>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style/site.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/site.js"></script>
 </head>
 
 <body class="body">
@@ -194,7 +196,7 @@
                             <span class="icon">
                                 <i class="fas fa-download"></i>
                             </span>
-                            <span>Download CV</span>
+                            <span>Download resume</span>
                         </a>
                     </div>
                 </div>
@@ -215,6 +217,16 @@
                 développement front-end, apportant une attention
                 particulière à la convivialité et à l'expérience utilisateur.</p>
         </div>
+        <div class="container lang-en" style="display: none">
+            <h2 class="title is-2">Developer at DRC Solutions</h2>
+            <p><a href="https://drcsolutions.ca/" target="_blank">DRC Solutions</a> is a startup company based in
+                Lac-Beaucport, specializing in software development for a variety of clients. We particularly focus on
+                accounting software, providing innovative solutions to meet our clients' specific needs. As a developer
+                at DRC Solutions, I have had the opportunity to work on a variety of projects, including module
+                development, migrating from WinForms to WPF, as well as development with ASP.NET. I specialize mainly in
+                user interface (UI) design and front-end development, paying close attention to user-friendliness and
+                user experience.</p>
+        </div>
 
         <div class="container">
             <div class="card my-2">
@@ -222,11 +234,13 @@
                     <div class="container">
                         <div class="columns is-multiline">
                             <div class="column is-11-desktop">
-                                <p class="title">Conception d'interfaces WPF</p>
-                                <p class="subtitle">J'ai conçu diverses interfaces front-end et UserControls WPF (Xaml)
-                                    au
-                                    sein
-                                    de l'application comptable DRC-PRO.</p>
+                                <p class="title lang-fr">Conception d'interfaces WPF</p>
+                                <p class="title lang-en" style="display: none">WPF Interface Design</p>
+                                <p class="subtitle lang-fr">J'ai conçu diverses interfaces front-end et UserControls WPF
+                                    (Xaml) au sein de l'application comptable DRC-PRO.</p>
+                                <p class="subtitle lang-en" style="display: none">I have designed various front-end
+                                    interfaces and WPF UserControls (Xaml) within the DRC-PRO accounting application.
+                                </p>
                             </div>
                             <div class="column is-1-desktop is-flex is-justify-content-flex-end is-align-items-center">
                                 <button id="btnExpWPF" class="button is-square expander-button">
@@ -242,23 +256,26 @@
                     </div>
 
                     <div class="expander-content hidden my-2">
-                        <p class="subtitle mb-0">Module GIO (Gestion Intégrée des Opérations)</p>
-                        <p class="my-2">Ce module du logicel comptable DRC-PRO permet au gestionnaire d'avoir la vue
-                            globale
-                            des
-                            informations et d'accéder facilement aux détails de
-                            celles-ci sans devoir naviguer dans les différents modules. Celui-ci est un peu spécial
-                            puisqu'il
-                            comporte des UserControl Winforms dans une fenêtre WPF.
-                            Parce qu'une conversion complète de l'application originale en Winforms est en cours,
-                            certaines
-                            sections de l'application WPF doivent comprendre des
-                            UserControls Winforms en attendant que leur équivalent en WPF soient développé. J'ai
-                            contribué à
-                            mettre en place
-                            plusieurs éléments de l'affichage comme l'intégration du UserControl Winforms, le menu dans
-                            le
-                            haut ainsi que l'affichage de la liste des rapports.</p>
+                        <p class="subtitle mb-0 lang-fr">Module GIO (Gestion Intégrée des Opérations)</p>
+                        <p class="subtitle mb-0 lang-en" style="display: none">GIO Module (Integrated Operations
+                            Management)</p>
+                        <p class="my-2 lang-fr">Ce module du logiciel comptable DRC-PRO permet au gestionnaire d'avoir
+                            une vue globale des informations et d'accéder facilement aux détails sans avoir à naviguer
+                            dans les différents modules. Il est un peu spécial car il contient des UserControl WinForms
+                            dans une fenêtre WPF. Comme une conversion complète de l'application originale en WinForms
+                            est en cours, certaines sections de l'application WPF doivent comprendre des UserControl
+                            WinForms en attendant que leur équivalent en WPF soit développé. J'ai contribué à la mise en
+                            place de plusieurs éléments d'affichage, tels que l'intégration du UserControl WinForms, le
+                            menu en haut de la fenêtre ainsi que l'affichage de la liste des rapports.</p>
+                        <p class="my-2 lang-en" style="display: none">This module of the DRC-PRO accounting software
+                            allows the manager to have a comprehensive view of the information and easily access details
+                            without navigating through different modules. It is a bit special because it contains
+                            WinForms UserControls within a WPF window. As a complete conversion of the original WinForms
+                            application is underway, certain sections of the WPF application need to include WinForms
+                            UserControls until their WPF equivalents are developed. I contributed to setting up several
+                            display elements, such as integrating the WinForms UserControl, the top menu, and displaying
+                            the list of reports.</p>
+
                         <div class="container">
                             <div class="columns is-multiline">
                                 <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
@@ -273,24 +290,29 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="subtitle mb-0">Module GOP (Gestion des Opérations Pro)</p>
-                        <p class="my-2">GOP est le coeur de l'application. C'est dans ce module que peuvent être créées
-                            les
-                            soumissions, commandes et factures, les items à transférer
-                            à la production. Je m'occupe de l'entièreté du développement de l'interface utilisateur en
-                            WPF.
-                            Autant le design, les éléments visuels, que la logique en back-end pour faire
-                            fonctionner le tout. Le UI est composé de controls utilisateurs de la librairie <a
+                        <p class="subtitle mb-0 lang-fr">Module GOP (Gestion des Opérations Pro)</p>
+                        <p class="subtitle mb-0 lang-en" style="display: none">GOP Module (Operations
+                            Management Pro)</p>
+                        <p class="my-2 lang-fr">GOP est le cœur de l'application. C'est dans ce module que peuvent être
+                            créées les soumissions, commandes et factures, les items à transférer à la production. Je
+                            m'occupe de l'entièreté du développement de l'interface utilisateur en WPF. Tant le design,
+                            les éléments visuels, que la logique en back-end pour faire fonctionner le tout. Le UI est
+                            composé de contrôles utilisateurs de la librairie <a
                                 href="https://github.com/HandyOrg/HandyControl" target="_blank">HandyControl</a>. Ces
-                            cards
-                            qui contienent
-                            les informations des documents et des clients sont des controls custom qui hérite de
-                            l'Expander
-                            et qui s'agrandissent vers le bas quand la souris de l'utilisateur est au dessus
-                            de la card, ou si elle est "verouillée" avec le bouton rond cadenas. Cela permet de garder
-                            une
-                            vue d'ensemble des informations et de consulter les détails facilement.
-                        </p>
+                            cartes qui contiennent les informations des documents et des clients sont des contrôles
+                            personnalisés qui héritent de l'Expander et qui s'agrandissent vers le bas quand la souris
+                            de l'utilisateur est au-dessus de la carte, ou si elle est "verrouillée" avec le bouton rond
+                            cadenas. Cela permet de garder une vue d'ensemble des informations et de consulter les
+                            détails facilement.</p>
+                        <p class="my-2 lang-en" style="display: none">GOP is the heart of the application. It is in this
+                            module that submissions, orders, and invoices can be created, items transferred to
+                            production. I am responsible for the entire development of the user interface in WPF. Both
+                            the design, the visual elements, and the backend logic to make everything work. The UI is
+                            composed of user controls from the <a href="https://github.com/HandyOrg/HandyControl"
+                                target="_blank">HandyControl</a> library. These cards containing document and client
+                            information are custom controls that inherit from the Expander and expand downwards when the
+                            user's mouse is over the card, or if it is "locked" with the round padlock button. This
+                            allows for an overview of the information and easy access to details.</p>
 
                         <div class="container is-centered">
                             <div class="columns is-multiline">
@@ -311,12 +333,13 @@
                     <div class="container">
                         <div class="columns is-multiline">
                             <div class="column is-11-desktop">
-                                <p class="title">Conception d'interfaces Web</p>
-                                <p class="subtitle">J'ai contribué à l'application comptable Web ASP.Net avec la
-                                    conception
-                                    de
-                                    plusieurs
-                                    modules en front-end et back-end (VB.Net).</p>
+                                <p class="title lang-fr">Conception d'interfaces Web</p>
+                                <p class="title lang-en" style="display: none">Web Interface Design</p>
+                                <p class="subtitle lang-fr">J'ai contribué à l'application comptable Web ASP.Net avec la
+                                    conception de plusieurs modules en front-end et back-end (VB.Net).</p>
+                                <p class="subtitle lang-en" style="display: none">I contributed to the ASP.Net web
+                                    accounting application with the design of several modules in front-end and back-end
+                                    (VB.Net).</p>
                             </div>
                             <div class="column is-1-desktop is-flex is-justify-content-flex-end is-align-items-center">
                                 <button id="btnExpWEB" class="button is-square expander-button">
@@ -331,7 +354,9 @@
                         </div>
                     </div>
                     <div class="expander-content hidden my-2">
-                        <p class="subtitle">Module GIO (Gestion Intégrée des Opérations)</p>
+                        <p class="subtitle lang-fr">Module GIO (Gestion Intégrée des Opérations)</p>
+                        <p class="subtitle lang-en" style="display: none">GIO Module (Integrated Operations
+                            Management)</p>
                         <div class="container">
                             <div class="columns is-multiline">
                                 <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
@@ -346,14 +371,17 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="subtitle mb-0">Module GCP (Gestion Calendrier Pro)</p>
-                        <p class="my-2">Ce module utilise le plugin de calendrier Javascript FullCalendar pour gérer de
-                            nombreux
-                            événements de différents types reliés à des documents gérés dans d'autres modules de
-                            l'application.
-                            On peut ajouter des notes, des événements de documents, des suivis, des tâches d'employés
-                            par
-                            exemple.</p>
+                        <p class="subtitle mb-0 lang-fr">Module GCP (Gestion Calendrier Pro)</p>
+                        <p class="subtitle mb-0 lang-en" style="display: none">GCP Module (Professional Calendar
+                            Management)</p>
+                        <p class="my-2 lang-fr">Ce module utilise le plugin de calendrier Javascript FullCalendar pour
+                            gérer de nombreux événements de différents types reliés à des documents gérés dans d'autres
+                            modules de l'application. On peut ajouter des notes, des événements de documents, des
+                            suivis, des tâches d'employés par exemple.</p>
+                        <p class="my-2 lang-en" style="display: none">This module uses the FullCalendar JavaScript
+                            calendar plugin to manage numerous events of different types related to documents managed in
+                            other modules of the application. Notes, document events, follow-ups, employee tasks, for
+                            example, can be added.</p>
                         <div class="container">
                             <div class="columns is-multiline">
                                 <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
@@ -389,8 +417,9 @@
         </div>
     </section>
     <section class="section">
-        <div class="container lang-fr">
-            <h2 class="title is-2">Projets d'école</h2>
+        <div class="container">
+            <h2 class="title is-2 lang-fr">Projets d'école</h2>
+            <h2 class="title is-2 lang-en" style="display: none">School Projects</h2>
             <p></p>
         </div>
         <div class="container">
@@ -415,7 +444,8 @@
                         </div>
                     </div>
                     <div class="expander-content hidden my-2">
-                        <p class="subtitle">Catalogue d'items</p>
+                        <p class="subtitle lang-fr">Catalogue d'items</p>
+                        <p class="subtitle lang-en" style="display: none">Item Catalog</p>
                         <div class="container">
                             <div class="columns is-multiline">
                                 <!--
@@ -437,7 +467,8 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="subtitle">Gestion de réservations</p>
+                        <p class="subtitle lang-fr">Gestion de réservations</p>
+                        <p class="subtitle lang-en" style="display: none">Reservation Management</p>
                         <div class="container">
                             <div class="columns is-multiline">
                                 <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
@@ -452,7 +483,8 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="subtitle">Gestion d'items</p>
+                        <p class="subtitle lang-fr">Gestion d'items</p>
+                        <p class="subtitle lang-en" style="display: none">Item Management</p>
                         <div class="container">
                             <div class="columns is-multiline">
                                 <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
@@ -467,7 +499,8 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="subtitle">Panier</p>
+                        <p class="subtitle lang-fr">Panier</p>
+                        <p class="subtitle lang-en" style="display: none">Shopping Cart</p>
                         <div class="container">
                             <div class="columns is-multiline">
                                 <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
@@ -496,6 +529,9 @@
                     <button class="button is-dark is-medium" onclick="scrollToTop()">Remonter</button>
                     <button class="button is-dark is-medium"
                         onclick="window.location.href='mailto:alexchevarie@hotmail.ca'">Me Contacter</button>
+                    <button class="button is-dark is-medium" onclick="scrollToTop()" style="display: none">Scroll to Top</button>
+                    <button class="button is-dark is-medium"
+                        onclick="window.location.href='mailto:alexchevarie@hotmail.ca'" style="display: none">Contact Me</button>
                 </div>
                 <!-- Deuxième colonne pour les deux derniers boutons -->
                 <div class="column has-text-right">
@@ -510,187 +546,6 @@
             </p>
         </div>
     </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Appel de la fonction au chargement pour configurer les éléments
-            setupExpanderContent();
-        });
-
-        function showFrenchContent() {
-            document.querySelectorAll('.lang-fr').forEach(function (el) {
-                el.style.display = 'block';
-            });
-            document.querySelectorAll('.lang-en').forEach(function (el) {
-                el.style.display = 'none';
-            });
-        }
-
-        function showEnglishContent() {
-            document.querySelectorAll('.lang-fr').forEach(function (el) {
-                el.style.display = 'none';
-            });
-            document.querySelectorAll('.lang-en').forEach(function (el) {
-                el.style.display = 'block';
-            });
-        }
-
-        function setupExpanderContent() {
-            // Trouver tous les boutons d'expansion
-            var expandButtons = document.querySelectorAll('.expander-button');
-
-            // Parcourir tous les boutons d'expansion
-            expandButtons.forEach(function (button) {
-                // Récupérer l'ID du bouton
-                var buttonId = button.getAttribute('id');
-
-                // Récupérer l'état enregistré du bouton dans la session
-                var isExpanded = sessionStorage.getItem(buttonId);
-
-                // Trouver le span icon qui devrait être affiché
-                var downIcon = button.querySelector('.fa-arrow-down');
-                var upIcon = button.querySelector('.fa-arrow-up');
-
-                // Trouver le div avec la classe expander-content dans le parent div
-                var parentDiv = button.closest('.card-content');
-                var expanderContent = parentDiv.querySelector('.expander-content');
-
-                // Vérifier si l'élément devrait être affiché ou caché en fonction de la session
-                if (isExpanded === 'true') {
-                    expanderContent.classList.remove('hidden');
-                    upIcon.classList.remove('hidden');
-                    downIcon.classList.add('hidden');
-
-                } else {
-                    expanderContent.classList.add('hidden');
-                    upIcon.classList.add('hidden');
-                    downIcon.classList.remove('hidden');
-                }
-
-                // Attacher un gestionnaire d'événements clic à chaque bouton d'expansion
-                button.addEventListener('click', function () {
-                    // Appeler la fonction toggleExpanderContent en passant le bouton comme paramètre
-                    toggleExpanderContent(button);
-                });
-            });
-        }
-
-        function toggleExpanderContent(button) {
-            // Trouver le div avec la classe expander-content dans le parent div
-            var parentDiv = button.closest('.card-content');
-            var expanderContent = parentDiv.querySelector('.expander-content');
-
-            // Trouver les spans icon du bouton
-            var downIcon = button.querySelector('.fa-arrow-down');
-            var upIcon = button.querySelector('.fa-arrow-up');
-
-            // Récupérer l'ID du bouton
-            var buttonId = button.getAttribute('id');
-
-            // Vérifier si le div est actuellement visible ou caché
-            if (expanderContent.classList.contains('hidden')) {
-                // Afficher le contenu
-                expanderContent.classList.remove('hidden');
-                upIcon.classList.remove('hidden');
-                downIcon.classList.add('hidden');
-                // Sauvegarder l'état dans la session
-                sessionStorage.setItem(buttonId, 'true');
-            } else {
-                // Cacher le contenu
-                expanderContent.classList.add('hidden');
-                upIcon.classList.add('hidden');
-                downIcon.classList.remove('hidden');
-                // Sauvegarder l'état dans la session
-                sessionStorage.setItem(buttonId, 'false');
-            }
-        }
-
-        $(document).ready(function () {
-            $('.zoomable-image').hover(function () {
-                $(this).toggleClass('is-expanded');
-            });
-        });
-
-        var video = document.getElementById("TGMCatVideo");
-        // Lecture de la vidéo au survol de la souris
-        video.addEventListener("mouseover", function () {
-            if (video.paused) {
-                video.play();
-            }
-        });
-        // Pause de la vidéo lorsque la souris n'est plus au-dessus
-        video.addEventListener("mouseout", function () {
-            video.pause();
-        });
-
-        // Ouvrir la vidéo dans une nouvelle page au clic
-        video.addEventListener("click", function () {
-            // Récupérer l'URL de la vidéo
-            var videoSrc = video.getAttribute("src");
-            // Ouvrir la vidéo dans une nouvelle fenêtre ou un nouvel onglet
-            window.open(videoSrc, "_blank");
-        });
-    </script>
 </body>
 
 </html>
-<style>
-    .body {
-        background-color: whitesmoke;
-    }
-
-    .hero.is-bold {
-        background-image: url('banner.jpg');
-        background-size: cover;
-        background-position: center center;
-        color: #ffffff;
-    }
-
-    .footer {
-        background-color: #363636;
-        color: #ffffff;
-        padding: 20px 0;
-    }
-
-    .sidebar {
-        position: fixed;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .sidebar .button {
-        width: 150px;
-    }
-
-    /* Pour une meilleure présentation des images */
-    .image-container {
-        margin-bottom: 20px;
-    }
-
-    .image-container img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .zoomable-image {
-        cursor: pointer;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .zoomable-image.is-expanded {
-        transform: scale(1.2);
-        /* Augmentez la valeur de l'échelle pour agrandir davantage */
-    }
-
-    .hidden {
-        display: none !important;
-    }
-
-    .expander-content.hidden {
-        display: none !important;
-    }
-</style>
