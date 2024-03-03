@@ -44,13 +44,13 @@ function setupExpanderContent() {
         // Vérifier si l'élément devrait être affiché ou caché en fonction de la session
         if (isExpanded === 'true') {
             expanderContent.classList.remove('hidden');
-            upIcon.classList.remove('hidden');
-            downIcon.classList.add('hidden');
+            upIcon.parentElement.classList.remove('hidden');
+            downIcon.parentElement.classList.add('hidden');
 
         } else {
             expanderContent.classList.add('hidden');
-            upIcon.classList.add('hidden');
-            downIcon.classList.remove('hidden');
+            upIcon.parentElement.classList.add('hidden');
+            downIcon.parentElement.classList.remove('hidden');
         }
 
         // Attacher un gestionnaire d'événements clic à chaque bouton d'expansion
@@ -77,15 +77,15 @@ function toggleExpanderContent(button) {
     if (expanderContent.classList.contains('hidden')) {
         // Afficher le contenu
         expanderContent.classList.remove('hidden');
-        upIcon.classList.remove('hidden');
-        downIcon.classList.add('hidden');
+        upIcon.parentElement.classList.remove('hidden');
+        downIcon.parentElement.classList.add('hidden');
         // Sauvegarder l'état dans la session
         sessionStorage.setItem(buttonId, 'true');
     } else {
         // Cacher le contenu
         expanderContent.classList.add('hidden');
-        upIcon.classList.add('hidden');
-        downIcon.classList.remove('hidden');
+        upIcon.parentElement.classList.add('hidden');
+        downIcon.parentElement.classList.remove('hidden');
         // Sauvegarder l'état dans la session
         sessionStorage.setItem(buttonId, 'false');
     }
@@ -97,22 +97,10 @@ $(document).ready(function () {
     });
 });
 
-var video = document.getElementById("TGMCatVideo");
-// Lecture de la vidéo au survol de la souris
-video.addEventListener("mouseover", function () {
-    if (video.paused) {
-        video.play();
-    }
-});
-// Pause de la vidéo lorsque la souris n'est plus au-dessus
-video.addEventListener("mouseout", function () {
-    video.pause();
-});
 
-// Ouvrir la vidéo dans une nouvelle page au clic
-video.addEventListener("click", function () {
-    // Récupérer l'URL de la vidéo
-    var videoSrc = video.getAttribute("src");
-    // Ouvrir la vidéo dans une nouvelle fenêtre ou un nouvel onglet
-    window.open(videoSrc, "_blank");
-});
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // This makes the scrolling smooth
+    });
+}

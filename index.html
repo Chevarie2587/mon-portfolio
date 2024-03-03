@@ -243,7 +243,7 @@
                                 </p>
                             </div>
                             <div class="column is-1-desktop is-flex is-justify-content-flex-end is-align-items-center">
-                                <button id="btnExpWPF" class="button is-square expander-button">
+                                <button id="btnExpWPF" class="button is-rounded is-medium expander-button">
                                     <span class="icon">
                                         <i class="fas fa-arrow-down"></i>
                                     </span>
@@ -261,7 +261,9 @@
                             Management)</p>
                         <p class="my-2 lang-fr">Ce module du logiciel comptable DRC-PRO permet au gestionnaire d'avoir
                             une vue globale des informations et d'accéder facilement aux détails sans avoir à naviguer
-                            dans les différents modules. Il est un peu spécial car il contient des UserControl WinForms
+                            dans les différents modules. Il permet la production de rapports et de suivi de l'ensemble
+                            des
+                            travaux. Il est un peu spécial car il contient des UserControl WinForms
                             dans une fenêtre WPF. Comme une conversion complète de l'application originale en WinForms
                             est en cours, certaines sections de l'application WPF doivent comprendre des UserControl
                             WinForms en attendant que leur équivalent en WPF soit développé. J'ai contribué à la mise en
@@ -342,7 +344,7 @@
                                     (VB.Net).</p>
                             </div>
                             <div class="column is-1-desktop is-flex is-justify-content-flex-end is-align-items-center">
-                                <button id="btnExpWEB" class="button is-square expander-button">
+                                <button id="btnExpWEB" class="button is-rounded is-medium expander-button">
                                     <span class="icon">
                                         <i class="fas fa-arrow-down"></i>
                                     </span>
@@ -431,10 +433,10 @@
                                 <p class="title">Magasin TGM</p>
                                 <p class="subtitle"></p>
                             </div>
-                            <div class="column is-1-desktop is-flex is-justify-content-flex-end is-align-items-center">
-                                <button id="btnExpEco" class="button is-square expander-button">
+                            <div class="column is-flex is-justify-content-flex-end is-align-items-center">
+                                <button id="btnExpEco" class="button is-rounded is-medium expander-button">
                                     <span class="icon">
-                                        <i class="fas fa-arrow-down"></i>
+                                        <i class="fas fa-arrow-down d-none"></i>
                                     </span>
                                     <span class="icon">
                                         <i class="fas fa-arrow-up"></i>
@@ -454,12 +456,17 @@
                                         <img src="img/TGMCat.png" alt="TGMCat" class="zoomable-image">
                                     </a>
                                 </div>
-                                                            -->
+                                                            --><!--
                                 <video id="TGMCatVideo" loop
                                     class="column is-6-desktop is-12-tablet is-12-mobile image-container zoomable-image">
-                                    <source src="video/TGMCat.mp4" type="video/mp4">
+                                    <source src="https://youtu.be/uHrl98-7glA" type="video/mp4">
                                     Your browser does not support the video tag.
-                                </video>
+                                </video>-->
+
+                                <iframe id="TGMCatVideo" src="https://www.youtube.com/embed/uHrl98-7glA" frameborder="0"
+                                    allow="autoplay; encrypted-media" allowfullscreen
+                                    class="column is-6-desktop is-12-tablet is-12-mobile image-container zoomable-image"></iframe>
+
                                 <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
                                     <a href="img/TGMCat2.png" target="_blank">
                                         <img src="img/TGMCat2.png" alt="TGMCat" class="zoomable-image">
@@ -515,9 +522,43 @@
                                 </div>
                             </div>
                         </div>
+                        <p class="subtitle lang-fr">Liens des démos</p>
+                        <p class="subtitle lang-en" style="display: none">Demo links</p>
+                        <div class="buttons is-centered is-dark">
+                            <a href="https://youtu.be/KUTmg80XncI" class="button is-dark is-small">
+                                <span class="icon">
+                                    <i class="fas fa-video"></i>
+                                </span>
+                                <span>Admin</span>
+                            </a>
+                            <a href="https://youtu.be/k__4s6GCCG8" class="button is-dark is-small">
+                                <span class="icon">
+                                    <i class="fas fa-video"></i>
+                                </span>
+                                <span>Enseignant</span>
+                            </a>
+                            <a href="https://youtu.be/rA_FOyNx4QY" class="button is-dark is-small">
+                                <span class="icon">
+                                    <i class="fas fa-video"></i>
+                                </span>
+                                <span>Étudiant</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h2 class="title is-2 lang-fr">Mon portfolio</h2>
+            <h2 class="title is-2 lang-en" style="display: none">My portfolio</h2>
+            <p class="subtitle lang-fr">Ce site Web portfolio a été conçu par moi-même avec le framework de style
+                CSS Bulma, pour faire changement de Bootstrap. Les contrôles expander avec les boutons pour montrer
+                et cacher le contenu sont faits manuellement avec Javascript et Jquery</p>
+            <p class="subtitle lang-en" style="display: none">This website portfolio was designed by myself using
+                the CSS style framework Bulma, for a change from Bootstrap. The expander controls with buttons to
+                show and hide content are manually done with Javascript and JQuery.</p>
         </div>
     </section>
     <footer class="footer">
@@ -529,9 +570,11 @@
                     <button class="button is-dark is-medium" onclick="scrollToTop()">Remonter</button>
                     <button class="button is-dark is-medium"
                         onclick="window.location.href='mailto:alexchevarie@hotmail.ca'">Me Contacter</button>
-                    <button class="button is-dark is-medium" onclick="scrollToTop()" style="display: none">Scroll to Top</button>
+                    <button class="button is-dark is-medium" onclick="scrollToTop()" style="display: none">Scroll to
+                        Top</button>
                     <button class="button is-dark is-medium"
-                        onclick="window.location.href='mailto:alexchevarie@hotmail.ca'" style="display: none">Contact Me</button>
+                        onclick="window.location.href='mailto:alexchevarie@hotmail.ca'" style="display: none">Contact
+                        Me</button>
                 </div>
                 <!-- Deuxième colonne pour les deux derniers boutons -->
                 <div class="column has-text-right">
