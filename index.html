@@ -10,9 +10,51 @@
     <link rel="stylesheet" href="style/site.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/site.js"></script>
+
 </head>
 
-<body class="body">
+<!-- Structure du modal (initiallement caché) -->
+<div id="welcomeModal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box" style="display: flex; flex-direction: column; align-items: flex-start;">
+            <p class="lang-fr">
+                Bienvenue sur mon site de présentation.<br><br>
+                À noter que le tout est encore en développement. Des exemples de code de mes expériences et projets seront bientôt disponibles sur mon repo GitHub.<br><br>
+                Je prend également les suggestions d'ajout de contenu par courriel.<br><br>
+                Merci d'être passé,<br>
+                Alex
+            </p>
+            <p class="lang-en hidden">
+                Welcome to my presentation website.<br><br>
+                Please note that everything is still under development. Examples of code from my experiences and projects will be available soon on my GitHub repository.<br><br>
+                I also welcome suggestions for adding content via email.<br><br>
+                Thank you for visiting,<br>
+                Alex
+            </p>
+            <button class="button is-dark" id="okButton" style="align-self: flex-end;">OK</button>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+<script>
+    function gestionModalBienvenue(){
+        var modal = document.getElementById('welcomeModal');
+        if (!localStorage.getItem('firstVisit')) {
+            modal.classList.add('is-active');
+            localStorage.setItem('firstVisit', 'true');
+        }
+
+        modal.querySelector('.modal-close').addEventListener('click', function () {
+            modal.classList.remove('is-active');
+        });
+
+        modal.querySelector('#okButton').addEventListener('click', function () {
+            modal.classList.remove('is-active');
+        });
+    }
+</script>
+
     <header class="hero is-dark is-bold lang-fr">
         <div class="hero-body">
             <div class="container has-text-centered">
@@ -64,6 +106,7 @@
         </div>
       </nav>
     </div>-->
+<!-- Structure du modal -->
 
     <section class="mt-4 lang-fr">
         <div class="container">
@@ -396,24 +439,29 @@
                                         <img src="img/GCPWEB2.png" alt="GCPWEB2" class="zoomable-image">
                                     </a>
                                 </div>
-                                <div class="column is-4-desktop is-12-tablet is-12-mobile image-container">
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
                                     <a href="img/GCPWEB3.png" target="_blank">
                                         <img src="img/GCPWEB3.png" alt="GCPWEB3" class="zoomable-image">
                                     </a>
                                 </div>
-                                <div class="column is-4-desktop is-12-tablet is-12-mobile image-container">
+                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
                                     <a href="img/GCPWEB4.png" target="_blank">
                                         <img src="img/GCPWEB4.png" alt="GCPWEB4" class="zoomable-image">
                                     </a>
                                 </div>
-                                <div class="column is-4-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/GCPWEB5.png" target="_blank">
-                                        <img src="img/GCPWEB5.png" alt="GCPWEB5" class="zoomable-image">
-                                    </a>
-                                </div>
                             </div>
                         </div>
-                    </div>
+                        <p class="subtitle mb-0 lang-fr">Contrôles d'interface personnalisés</p>
+                        <p class="subtitle mb-0 lang-en" style="display: none">Custom controls</p>
+                        <p class="my-2 lang-fr">Pour réaliser les projets et modules chez DRC Solutions, j'ai dû concevoir des contrôles personnaliés pour répondre à des besoins spécifiques et améliorer l'expérience
+                            utilisateur. Ce menu déroulant personnalisé composé d'une textbox et d'un bouton ASP a comme particularité d'intégrer une gridview a plusieurs colonnes. L'utilisateur peut sélectionner
+                            un rang en particulier tout en disposant des données dans les colonnes configurées en back-end. Il est également possible de rechercher un rang en écrivant dans la textbox. Si la gridview est défilée jusqu'au bout, 50 autres rangs se rajoutent, pour permettre de ne pas charger l'entièreté des données et gruger des ressources inutilement. Chaque 
+                            intéraction avec l'utilisateur est configurée en Javascript avec des PostBack ASP.NET qui rafraîchit en async un UpdatePanel pour manipuler les données affichées dans la GridView.
+                        </p>
+                        <p class="my-2 lang-en" style="display: none">
+                            To accomplish projects and modules at DRC Solutions, I had to design custom controls to meet specific needs and enhance the user experience. This custom dropdown menu, consisting of a textbox and an ASP button, has the unique feature of integrating a gridview with multiple columns. The user can select a particular row while having data displayed in the configured backend columns. It is also possible to search for a row by typing in the textbox. If the gridview is scrolled to the end, 50 additional rows are added to avoid loading all the data and unnecessarily consuming resources. Each interaction with the user is configured in Javascript with ASP.NET PostBacks that asynchronously refresh an UpdatePanel to manipulate the data displayed in the GridView.                  </p>
+                        </p>
+                        </div>
                 </div>
             </div>
         </div>
@@ -567,14 +615,10 @@
             <div class="columns is-vcentered">
                 <!-- Première colonne pour les deux premiers boutons -->
                 <div class="column">
-                    <button class="button is-dark is-medium" onclick="scrollToTop()">Remonter</button>
-                    <button class="button is-dark is-medium"
-                        onclick="window.location.href='mailto:alexchevarie@hotmail.ca'">Me Contacter</button>
-                    <button class="button is-dark is-medium" onclick="scrollToTop()" style="display: none">Scroll to
-                        Top</button>
-                    <button class="button is-dark is-medium"
-                        onclick="window.location.href='mailto:alexchevarie@hotmail.ca'" style="display: none">Contact
-                        Me</button>
+                    <button class="button is-dark is-medium lang-fr" onclick="scrollToTop()">Remonter</button>
+                    <button class="button is-dark is-medium lang-en" onclick="scrollToTop()" style="display: none">Scroll to Top</button>
+                    <button class="button is-dark is-medium lang-fr" onclick="window.location.href='mailto:alexchevarie@hotmail.ca'">Me Contacter</button>
+                    <button class="button is-dark is-medium lang-en" onclick="window.location.href='mailto:alexchevarie@hotmail.ca'" style="display: none">Contact Me</button>
                 </div>
                 <!-- Deuxième colonne pour les deux derniers boutons -->
                 <div class="column has-text-right">

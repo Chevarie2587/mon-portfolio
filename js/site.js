@@ -1,8 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Appel de la fonction au chargement pour configurer les éléments
     setupExpanderContent();
+    gestionModalBienvenue();
 });
+function gestionModalBienvenue(){
+    var modal = document.getElementById('welcomeModal');
+        var firstVisitTimestamp = localStorage.getItem('firstVisitTimestamp');
+        var oneDayInMilliseconds = 24 * 60 * 60 * 1000; // une journée en millisecondes
 
+        if (!firstVisitTimestamp || Date.now() - parseInt(firstVisitTimestamp) >= oneDayInMilliseconds) {
+            modal.classList.add('is-active');
+            localStorage.setItem('firstVisitTimestamp', Date.now().toString());
+        }
+
+        modal.querySelector('.modal-close').addEventListener('click', function () {
+            modal.classList.remove('is-active');
+        });
+
+        modal.querySelector('#okButton').addEventListener('click', function () {
+            modal.classList.remove('is-active');
+        });
+}
 function showFrenchContent() {
     document.querySelectorAll('.lang-fr').forEach(function (el) {
         el.style.display = 'block';
