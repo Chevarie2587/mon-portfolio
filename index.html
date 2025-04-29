@@ -7,6 +7,8 @@
   <title>Alex Chevarie - Portfolio</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --primary-color: #4A90E2;
@@ -22,6 +24,7 @@
       background-color: var(--background-color);
       color: var(--text-color);
       transition: background-color 0.5s, color 0.5s;
+      font-family: 'Inter', sans-serif;
     }
 
     .hero {
@@ -69,6 +72,11 @@
       border-top-color: var(--secondary-color);
     }
 
+    .dark-mode .subtitle,
+    .dark-mode p {
+      color: #dddddd !important;
+    }
+
     .modal {
       display: none;
     }
@@ -79,13 +87,20 @@
 
     .modal-content.box {
       max-width: 70vw;
-      /* Largeur maximum à 90% de l'écran */
       width: 70vw;
       max-height: 70vh;
       overflow-y: auto;
-      /* Ajoute un scroll interne si besoin */
       padding: 2rem;
     }
+
+    /* Sur mobile (écrans ≤ 768px), augmenter à 90% */
+    @media (max-width: 768px) {
+      .modal-content.box {
+        max-width: 90vw;
+        width: 90vw;
+      }
+    }
+
 
     .button.is-primary {
       background-color: var(--primary-color);
@@ -100,13 +115,19 @@
     .portfolio-item {
       cursor: pointer;
     }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+      transition: 0.3s ease;
+    }
   </style>
 </head>
 
 <body>
   <!-- Dark Mode Toggle -->
   <div class="has-text-right p-4">
-    <button class="button is-small is-primary" onclick="toggleDarkMode()">Mode Nuit</button>
+    <button id="darkModeBtn" class="button is-small is-primary" onclick="toggleDarkMode()">Mode Nuit</button>
   </div>
 
   <!-- Header -->
@@ -145,12 +166,20 @@
       <h2 class="title is-2 has-text-centered">À propos</h2>
       <div class="content has-text-centered">
         <p>
-          Diplômé en Techniques de l'informatique au Cégep de Sherbrooke et étudiant au Baccalauréat en Administration
-          des affaires, Gestion des technologies d'affaires à l'Université de Sherbrooke, je possède
-          une expérience concrète en développement logiciel et Web acquise dès ma dernière année de CÉGEP et consolidée
-          à temps plein depuis décembre 2022. À l’aise avec
-          divers frameworks et technologies, je souhaite mettre mes compétences TI au service de projets d'analyse,
-          d'amélioration de processus, de gestion ou de développement.
+          Diplômé en Techniques de l'informatique au Cégep de Sherbrooke et actuellement étudiant au Baccalauréat en
+          Administration des affaires, concentration Gestion des technologies d'affaires à l'Université de Sherbrooke,
+          je combine une solide formation technique à une compréhension des enjeux organisationnels.
+        </p>
+        <p>
+          Depuis ma dernière année de CÉGEP, j'ai acquis une expérience concrète en développement logiciel et Web,
+          consolidée à temps plein depuis décembre 2022 chez DRC Solutions, où j'ai contribué à plusieurs projets
+          stratégiques.
+          Curieux de nature et passionné par les nouvelles technologies, je m'investis activement dans la modernisation
+          des systèmes d'information et l'intégration de solutions innovantes. Ma facilité à apprendre rapidement, à
+          m'adapter à différents environnements techniques, ainsi que ma capacité à travailler sous pression m'ont
+          permis de livrer des résultats concrets dans des contextes exigeants.
+          Je souhaite aujourd'hui mettre mes compétences TI au service de projets d'analyse d'affaires, de
+          transformation numérique, de gestion de solutions ou de développement applicatif.
         </p>
       </div>
     </div>
@@ -165,39 +194,51 @@
         <div class="column is-one-third has-text-centered">
           <div class="box">
             <h3 class="title is-4">Développement logiciel</h3>
+            <p>Expérience concrète en développement d'applications ASP.NET, WinForms et Blazor, avec gestion du back-end
+              en VB.NET et C#.</p>
           </div>
         </div>
+
         <div class="column is-one-third has-text-centered">
           <div class="box">
             <h3 class="title is-4">Analyse d’impact et migration de projet</h3>
-            <p></p>
+            <p>Analyse des dépendances techniques et migration complète de projets,
+              incluant l'utilisation d'outils de migration et de tests en environnement Visual Studio.</p>
           </div>
         </div>
+
         <div class="column is-one-third has-text-centered">
           <div class="box">
-            <h3 class="title is-4">Gestion de projet TI</h3>
+            <h3 class="title is-4">Administration Cloud</h3>
+            <p>Expérience avec l’environnement Microsoft Azure pour l’hébergement d’applications web, certification
+              AZ-900 à l'appui.</p>
           </div>
         </div>
+
         <div class="column is-one-third has-text-centered">
           <div class="box">
             <h3 class="title is-4">Gestion de CMS</h3>
-            <p></p>
+            <p>Expérience en gestion de sites WordPress, incluant l’intégration de fonctionnalités personnalisées
+              développées et connectées via API</p>
           </div>
         </div>
+
         <div class="column is-one-third has-text-centered">
           <div class="box">
-            <h3 class="title is-4">Configuration d’environnement de travail </h3>
-            <p></p>
+            <h3 class="title is-4">Configuration d’environnement de travail</h3>
+            <p>Installation, configuration et déploiement d’environnements Microsoft 365, serveurs et postes clients
+              pour PME.</p>
           </div>
         </div>
+
         <div class="column is-one-third has-text-centered">
           <div class="box">
             <h3 class="title is-4">Support informatique</h3>
-            <p></p>
+            <p>Assistance technique aux utilisateurs, tutorat, dépannage matériel/logiciel et installation de systèmes à
+              des postes variés.</p>
           </div>
         </div>
       </div>
-
       <!-- Logos des technologies -->
       <div class="columns is-multiline is-centered is-mobile mt-5">
         <div class="column is-one-quarter has-text-centered">
@@ -268,7 +309,6 @@
           <p>Azure</p>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -280,7 +320,7 @@
       <div class="columns is-multiline">
         <div class="column is-half">
           <div class="box portfolio-item" onclick="openModal('modalDRCPRO')">
-            <h4 class="title is-4">Refonte logicielle comptable (Blazor)</h4>
+            <h4 class="title is-4">Refonte logicielle comptable</h4>
             <p>Mise en œuvre d'une interface moderne pour la gestion de documents et de tâches en entreprise.</p>
           </div>
         </div>
@@ -560,6 +600,7 @@
         </div>
       </div>
     </div>
+    <button class="modal-close is-large" aria-label="close" onclick="closeModal('modalDRCPRO')"></button>
   </div>
 
   <!-- Contact -->
@@ -567,15 +608,25 @@
     <div class="container">
       <h2 class="title is-2 has-text-centered">Contact</h2>
       <div class="has-text-centered">
-        <a class="button is-primary" href="mailto:alexchevarie@hotmail.ca">Écrivez-moi</a>
+        <div class="buttons is-centered">
+          <a class="button is-link" href="mailto:alexchevarie@hotmail.ca">
+            <span class="icon"><i class="fas fa-envelope"></i></span>
+            <span>Écrivez-moi</span>
+          </a>
+          <a class="button is-link" href="tel:+18736622514">
+            <span class="icon"><i class="fas fa-phone"></i></span>
+            <span>Appelez-moi</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
+
   <!-- Footer -->
   <footer class="footer">
     <div class="content has-text-centered">
-      <p>© 2024 Alex Chevarie - Tous droits réservés</p>
+      <p>© 2025 Alex Chevarie - Tous droits réservés</p>
     </div>
   </footer>
 
@@ -597,7 +648,16 @@
 
     // Dark mode toggle
     function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
+      const body = document.body;
+      const button = document.getElementById('darkModeBtn');
+
+      body.classList.toggle('dark-mode');
+
+      if (body.classList.contains('dark-mode')) {
+        button.textContent = 'Mode Jour';
+      } else {
+        button.textContent = 'Mode Nuit';
+      }
     }
 
     // Modals
