@@ -1,672 +1,617 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="style/site.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/site.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Chevarie - Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #4A90E2;
+      --secondary-color: #50E3C2;
+      --background-color: #f5f7fa;
+      --text-color: #333333;
+      --dark-background: #1c1c1c;
+      --dark-text: #e0e0e0;
+      --accent-color: #7ED6DF;
+    }
 
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    .hero {
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      color: white;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    .section {
+      padding: 3rem 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .box {
+      background-color: white;
+      border-top: 4px solid var(--accent-color);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .dark-mode {
+      background-color: var(--dark-background);
+      color: var(--dark-text);
+    }
+
+    .dark-mode .hero {
+      background: linear-gradient(to right, #555, #888);
+      color: white;
+    }
+
+    .dark-mode .box {
+      background-color: #2c2c2c;
+      color: var(--dark-text);
+      border-top-color: var(--secondary-color);
+    }
+
+    .modal {
+      display: none;
+    }
+
+    .modal.is-active {
+      display: flex;
+    }
+
+    .modal-content.box {
+      max-width: 70vw;
+      /* Largeur maximum à 90% de l'écran */
+      width: 70vw;
+      max-height: 70vh;
+      overflow-y: auto;
+      /* Ajoute un scroll interne si besoin */
+      padding: 2rem;
+    }
+
+    .button.is-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    .button.is-primary:hover {
+      background-color: var(--secondary-color);
+      border-color: var(--secondary-color);
+    }
+
+    .portfolio-item {
+      cursor: pointer;
+    }
+  </style>
 </head>
 
-<!-- Structure du modal (initiallement caché) -->
-<div id="welcomeModal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-        <div class="box" style="display: flex; flex-direction: column; align-items: flex-start;">
-            <p class="lang-fr">
-                Bienvenue sur mon site de présentation.<br><br>
-                À noter que le tout est encore en développement. Des exemples de code de mes expériences et projets seront bientôt disponibles sur mon repo GitHub.<br><br>
-                Je prend également les suggestions d'ajout de contenu par courriel.<br><br>
-                Merci d'être passé,<br>
-                Alex
-            </p>
-            <p class="lang-en hidden">
-                Welcome to my presentation website.<br><br>
-                Please note that everything is still under development. Examples of code from my experiences and projects will be available soon on my GitHub repository.<br><br>
-                I also welcome suggestions for adding content via email.<br><br>
-                Thank you for visiting,<br>
-                Alex
-            </p>
-            <button class="button is-dark" id="okButton" style="align-self: flex-end;">OK</button>
+<body>
+  <!-- Dark Mode Toggle -->
+  <div class="has-text-right p-4">
+    <button class="button is-small is-primary" onclick="toggleDarkMode()">Mode Nuit</button>
+  </div>
+
+  <!-- Header -->
+  <section class="hero is-fullheight-with-navbar">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+
+        <figure class="image is-128x128 is-inline-block mb-5">
+          <img class="is-rounded" src="img/pdp.png" alt="Photo de Alex Chevarie">
+        </figure>
+
+        <h1 class="title is-1">Alex Chevarie</h1>
+        <h2 class="subtitle is-3">TI | Développement | Gestion de projet</h2>
+        <p class="subtitle is-5">
+          Je suis un jeune étudiant de l'Université de Sherbrooke en recherche d'opportunités pour mettre en pratique
+          mes compétences et poursuivre mon développement professionnel.
+        </p>
+        <div class="buttons is-centered mt-4">
+          <a class="button is-light" href="CV_AlexChevarie.pdf">
+            <span class="icon">
+              <i class="fas fa-download"></i>
+            </span>
+            <span>Télécharger CV</span>
+          </a>
+          <a class="button is-light" href="#portfolio">Voir Portfolio</a>
+          <a class="button is-light" href="#contact">Me Contacter</a>
         </div>
+      </div>
     </div>
-    <button class="modal-close is-large" aria-label="close"></button>
-</div>
-<script>
-    function gestionModalBienvenue(){
-        var modal = document.getElementById('welcomeModal');
-        if (!localStorage.getItem('firstVisit')) {
-            modal.classList.add('is-active');
-            localStorage.setItem('firstVisit', 'true');
-        }
+  </section>
 
-        modal.querySelector('.modal-close').addEventListener('click', function () {
-            modal.classList.remove('is-active');
-        });
 
-        modal.querySelector('#okButton').addEventListener('click', function () {
-            modal.classList.remove('is-active');
-        });
-    }
-</script>
+  <!-- À propos -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="title is-2 has-text-centered">À propos</h2>
+      <div class="content has-text-centered">
+        <p>
+          Diplômé en Techniques de l'informatique au Cégep de Sherbrooke et étudiant au Baccalauréat en Administration
+          des affaires, Gestion des technologies d'affaires à l'Université de Sherbrooke, je possède
+          une expérience concrète en développement logiciel et Web acquise dès ma dernière année de CÉGEP et consolidée
+          à temps plein depuis décembre 2022. À l’aise avec
+          divers frameworks et technologies, je souhaite mettre mes compétences TI au service de projets d'analyse,
+          d'amélioration de processus, de gestion ou de développement.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <header class="hero is-dark is-bold lang-fr">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h5 class="subtitle is-6">Alex Chevarie</h5>
-                <h1 class="title is-1">Mon Portfolio</h1>
-                <h2 class="subtitle is-3">Développeur</h2>
-            </div>
-        </div>
-    </header>
+  <!-- Compétences -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="title is-2 has-text-centered">Compétences</h2>
 
-    <header class="hero is-dark is-bold lang-en" style="display: none">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h5 class="subtitle is-6">Alex Chevarie</h5>
-                <h1 class="title is-1">My Portfolio</h1>
-                <h2 class="subtitle is-3">Developer</h2>
-            </div>
-        </div>
-    </header>
-
-    <!--<div class="container">
-    <nav class="navbar is-centered" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="#">
-            Mon Site
-          </a>
-      
-          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item" href="#section1">
-              Section 1
-            </a>
-      
-            <a class="navbar-item" href="#section2">
-              Section 2
-            </a>
-      
-            <a class="navbar-item" href="#section3">
-              Section 3
-            </a>
+      <div class="columns is-multiline">
+        <div class="column is-one-third has-text-centered">
+          <div class="box">
+            <h3 class="title is-4">Développement logiciel</h3>
           </div>
         </div>
-      </nav>
-    </div>-->
-<!-- Structure du modal -->
-
-    <section class="mt-4 lang-fr">
-        <div class="container">
-            <div class="columns is-vcentered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-2">À propos de moi</h2>
-                    <p>Développeur de 21 ans, diplômé en Techniques de l'informatique et étudiant en Baccalauréat en informatique de gestion à l'Université de Sherbrooke, je suis à la recherche d'opportunités pour mettre en pratique mes compétences et poursuivre mon développement professionnel. À l’aise avec divers frameworks et langages de programmation, j’ai un fort intérêt pour l'apprentissage de nouvelles technologies. J'ai eu la chance de travailler en tant que développeur pendant ma dernière année de CÉGEP et de poursuivre cette expérience à temps plein depuis janvier 2023, ce qui m’a permis d’acquérir une solide expérience en création de logiciels et de solutions Web.</p>
-                </div>
-                <div class="column">
-                    <img src="img/pdp.png" alt="Photo de profil" width="150" height="183" class="zoomable-image">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="mt-4 lang-en" style="display: none">
-        <div class="container">
-            <div class="columns is-vcentered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-2">About me</h2>
-                    <p>I am a 21-year-old developer with a diploma in Computer Technology, currently pursuing a Bachelor's degree in Information Technology Management at the University of Sherbrooke. I am seeking opportunities to apply my skills and continue my professional growth. Comfortable with various programming languages and frameworks, I have a strong interest in learning new technologies. I had the chance to work as a developer during my final year at CEGEP and have been working full-time since January 2023, gaining solid experience in software and web solution development.</p>
-                </div>
-                <div class="column">
-                    <img src="img/pdp.png" alt="Photo de profil" width="150" height="183" class="zoomable-image">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="columns is-multiline is-centered is-mobile">
-                <div class="column is-one-quarter has-text-centered">
-                    <p class="is-size-5 has-text-weight-bold">C#/VB.NET</p>
-                </div>
-                <div class="column is-one-quarter has-text-centered">
-                    <span class="icon is-large">
-                        <p class="is-size-5 has-text-weight-bold">C++</p>
-                    </span>
-                </div>
-                <div class="column is-one-quarter has-text-centered">
-                    <span class="icon is-large">
-                        <i class="fas fa-code fa-3x"></i>
-                    </span>
-                    <p>HTML/CSS</p>
-                </div>
-                <div class="column is-one-quarter has-text-centered">
-                    <span class="icon is-large">
-                        <i class="fab fa-php fa-3x"></i>
-                    </span>
-                    <p>PHP</p>
-                </div>
-                <div class="column is-one-quarter has-text-centered">
-                    <span class="icon is-large">
-                        <i class="fas fa-database fa-3x"></i>
-                    </span>
-                    <p>SQL Server/MySQL</p>
-                </div>
-                <div class="column is-one-quarter has-text-centered">
-                    <span class="icon is-large">
-                        <i class="fab fa-js fa-3x"></i>
-                    </span>
-                    <p>JavaScript/JQuery/JSON</p>
-                </div>
-                <div class="column is-one-quarter has-text-centered">
-                    <p class="is-size-5 has-text-weight-bold">ASP.NET 4.8/6/7</p>
-                </div>
-                <div class="column is-one-quarter has-text-centered">
-                    <span class="icon is-large">
-                        <i class="fas fa-database fa-3x"></i>
-                    </span>
-                    <p>Entity Framework</p>
-                </div>
-                <div class="column is-one-quarter has-text-centered">
-                    <span class="icon is-large">
-                        <i class="fab fa-symfony fa-3x"></i>
-                    </span>
-                    <p>Symfony</p>
-                </div>
-                <div class="column is-one-quarter has-text-centered">
-                    <span class="icon is-large">
-                        <i class="fab fa-windows fa-3x"></i>
-                    </span>
-                    <p>WPF</p>
-                </div>
-                <div class="column is-one-quarter has-text-centered">
-                    <span class="icon is-large">
-                        <i class="fab fa-bootstrap fa-3x"></i>
-                    </span>
-                    <p>Bootstrap</p>
-                </div>
-                <div class="column is-one-quarter has-text-centered">
-                    <span class="icon is-large">
-                        <i class="fab fa-microsoft fa-3x"></i>
-                    </span>
-                    <p>Azure</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container lang-fr">
-            <div class="columns is-centered">
-                <div class="column is-two-thirds has-text-centered">
-                    <div class="buttons is-centered is-dark">
-                        <a href="CV_AlexChevarie.pdf" download class="button is-dark">
-                            <span class="icon">
-                                <i class="fas fa-download"></i>
-                            </span>
-                            <span>Téléchargez mon CV</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container lang-en" style="display: none">
-            <div class="columns is-centered">
-                <div class="column is-two-thirds has-text-centered">
-                    <h2 class="title is-4">Download my CV</h2>
-                    <div class="buttons is-centered is-dark">
-                        <a href="CV_AlexChevarie.pdf" download class="button is-dark is-small">
-                            <span class="icon">
-                                <i class="fas fa-download"></i>
-                            </span>
-                            <span>Download resume</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section">
-        <div class="container lang-fr">
-            <h2 class="title is-2">Développeur chez DRC Solutions</h2>
-            <p><a href="https://drcsolutions.ca/" target="_blank">DRC Solutions</a> est une compagnie "startup" de
-                Lac-Beaucport spécialisée dans la conception de logiciels pour une variété de
-                clients. Nous nous concentrons particulièrement sur les logiciels
-                comptables, fournissant des solutions innovantes pour répondre aux besoins spécifiques de nos clients.
-                En tant que développeur chez DRC Solutions, j'ai eu
-                l'opportunité de travailler sur une variété de projets, notamment le développement de modules, la
-                migration de WinForms vers WPF, ainsi que le développement
-                avec ASP.NET. J'ai accumulé une multitude de connaissances et d'aptitudes dans la conception d'interfaces utilisateur (UI) et le
-                développement front-end, apportant une attention particulière à la convivialité et à l'expérience utilisateur.</p>
-        </div>
-        <div class="container lang-en" style="display: none">
-            <h2 class="title is-2">Developer at DRC Solutions</h2>
-            <p><a href="https://drcsolutions.ca/" target="_blank">DRC Solutions</a> is a "startup" company based in Lac-Beaucport, specializing in software design for a variety of clients. We focus particularly on accounting software, providing innovative solutions to meet the specific needs of our clients. As a developer at DRC Solutions, I had the opportunity to work on a variety of projects, including module development, migration from WinForms to WPF, and development with ASP.NET. I have gained extensive knowledge and skills in user interface (UI) design and front-end development, with a strong emphasis on usability and user experience.</p>
-        </div>
-
-        <div class="container">
-            <div class="card my-2">
-                <div class="card-content">
-                    <div class="container">
-                        <div class="columns is-multiline">
-                            <div class="column is-11-desktop">
-                                <p class="title lang-fr">Conception d'interfaces WPF</p>
-                                <p class="title lang-en" style="display: none">WPF Interface Design</p>
-                                <p class="subtitle lang-fr">J'ai conçu diverses interfaces front-end et UserControls WPF
-                                    (Xaml) au sein de l'application comptable DRC-PRO.</p>
-                                <p class="subtitle lang-en" style="display: none">I have designed various front-end
-                                    interfaces and WPF UserControls (Xaml) within the DRC-PRO accounting application.
-                                </p>
-                            </div>
-                            <div class="column is-1-desktop is-flex is-justify-content-flex-end is-align-items-center">
-                                <button id="btnExpWPF" class="button is-rounded is-medium expander-button">
-                                    <span class="icon">
-                                        <i class="fas fa-arrow-down"></i>
-                                    </span>
-                                    <span class="icon">
-                                        <i class="fas fa-arrow-up"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="expander-content hidden my-2">
-                        <p class="subtitle mb-0 lang-fr">Module GIO (Gestion Intégrée des Opérations)</p>
-                        <p class="subtitle mb-0 lang-en" style="display: none">GIO Module (Integrated Operations
-                            Management)</p>
-                        <p class="my-2 lang-fr">Ce module du logiciel comptable DRC-PRO permet au gestionnaire d'avoir
-                            une vue globale des informations et d'accéder facilement aux détails sans avoir à naviguer
-                            dans les différents modules. Il permet la production de rapports et de suivi de l'ensemble
-                            des
-                            travaux. Il est un peu spécial car il contient des UserControl WinForms
-                            dans une fenêtre WPF. Comme une conversion complète de l'application originale en WinForms
-                            est en cours, certaines sections de l'application WPF doivent comprendre des UserControl
-                            WinForms en attendant que leur équivalent en WPF soit développé. J'ai contribué à la mise en
-                            place de plusieurs éléments d'affichage, tels que l'intégration du UserControl WinForms, le
-                            menu en haut de la fenêtre ainsi que l'affichage de la liste des rapports.</p>
-                        <p class="my-2 lang-en" style="display: none">This module of the DRC-PRO accounting software
-                            allows the manager to have a comprehensive view of the information and easily access details
-                            without navigating through different modules. It is a bit special because it contains
-                            WinForms UserControls within a WPF window. As a complete conversion of the original WinForms
-                            application is underway, certain sections of the WPF application need to include WinForms
-                            UserControls until their WPF equivalents are developed. I contributed to setting up several
-                            display elements, such as integrating the WinForms UserControl, the top menu, and displaying
-                            the list of reports.</p>
-
-                        <div class="container">
-                            <div class="columns is-multiline">
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/GIOWPF.png" target="_blank">
-                                        <img src="img/GIOWPF.png" alt="GIOWPF" class="zoomable-image">
-                                    </a>
-                                </div>
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/GIOWPF2.png" target="_blank">
-                                        <img src="img/GIOWPF2.png" alt="GIOWPF2" class="zoomable-image">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="subtitle mb-0 lang-fr">Module GOP (Gestion des Opérations Pro)</p>
-                        <p class="subtitle mb-0 lang-en" style="display: none">GOP Module (Operations
-                            Management Pro)</p>
-                        <p class="my-2 lang-fr">GOP est le cœur de l'application. C'est dans ce module que peuvent être
-                            créées les soumissions, commandes et factures, les items à transférer à la production. Je
-                            m'occupe de l'entièreté du développement de l'interface utilisateur en WPF. Tant le design,
-                            les éléments visuels, que la logique en back-end pour faire fonctionner le tout. Le UI est
-                            composé de contrôles utilisateurs de la librairie <a
-                                href="https://github.com/HandyOrg/HandyControl" target="_blank">HandyControl</a>. Ces
-                            cartes qui contiennent les informations des documents et des clients sont des contrôles
-                            personnalisés qui héritent de l'Expander et qui s'agrandissent vers le bas quand la souris
-                            de l'utilisateur est au-dessus de la carte, ou si elle est "verrouillée" avec le bouton rond
-                            cadenas. Cela permet de garder une vue d'ensemble des informations et de consulter les
-                            détails facilement.</p>
-                        <p class="my-2 lang-en" style="display: none">GOP is the heart of the application. It is in this
-                            module that submissions, orders, and invoices can be created, items transferred to
-                            production. I am responsible for the entire development of the user interface in WPF. Both
-                            the design, the visual elements, and the backend logic to make everything work. The UI is
-                            composed of user controls from the <a href="https://github.com/HandyOrg/HandyControl"
-                                target="_blank">HandyControl</a> library. These cards containing document and client
-                            information are custom controls that inherit from the Expander and expand downwards when the
-                            user's mouse is over the card, or if it is "locked" with the round padlock button. This
-                            allows for an overview of the information and easy access to details.</p>
-
-                        <div class="container is-centered">
-                            <div class="columns is-multiline">
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile is-centered">
-                                    <div class="image-container">
-                                        <a href="img/GOPWPF.png" target="_blank">
-                                            <img src="img/GOPWPF.png" alt="GOPWPF" class="zoomable-image">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card my-2">
-                <div class="card-content">
-                    <div class="container">
-                        <div class="columns is-multiline">
-                            <div class="column is-11-desktop">
-                                <p class="title lang-fr">Conception d'interfaces Web ASP.Net</p>
-                                <p class="title lang-en" style="display: none">Web Interface Design</p>
-                                <p class="subtitle lang-fr">J'ai contribué à l'application comptable Web ASP.Net avec la
-                                    conception de plusieurs modules en front-end et back-end (VB.Net).</p>
-                                <p class="subtitle lang-en" style="display: none">I contributed to the ASP.Net web
-                                    accounting application with the design of several modules in front-end and back-end
-                                    (VB.Net).</p>
-                            </div>
-                            <div class="column is-1-desktop is-flex is-justify-content-flex-end is-align-items-center">
-                                <button id="btnExpWEB" class="button is-rounded is-medium expander-button">
-                                    <span class="icon">
-                                        <i class="fas fa-arrow-down"></i>
-                                    </span>
-                                    <span class="icon">
-                                        <i class="fas fa-arrow-up"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="expander-content hidden my-2">
-                        <p class="subtitle lang-fr">Module GIO (Gestion Intégrée des Opérations)</p>
-                        <p class="subtitle lang-en" style="display: none">GIO Module (Integrated Operations
-                            Management)</p>
-                        <div class="container">
-                            <div class="columns is-multiline">
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/GIOWEB.png" target="_blank">
-                                        <img src="img/GIOWEB.png" alt="GIOWEB" class="zoomable-image">
-                                    </a>
-                                </div>
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/GIOWEB2.png" target="_blank">
-                                        <img src="img/GIOWEB2.png" alt="GIOWEB2" class="zoomable-image">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="subtitle mb-0 lang-fr">Module GCP (Gestion Calendrier Pro)</p>
-                        <p class="subtitle mb-0 lang-en" style="display: none">GCP Module (Professional Calendar
-                            Management)</p>
-                        <p class="my-2 lang-fr">Ce module utilise le plugin de calendrier Javascript FullCalendar pour
-                            gérer de nombreux événements de différents types reliés à des documents gérés dans d'autres
-                            modules de l'application. On peut ajouter des notes, des événements de documents, des
-                            suivis, des tâches d'employés par exemple.</p>
-                        <p class="my-2 lang-en" style="display: none">This module uses the FullCalendar JavaScript
-                            calendar plugin to manage numerous events of different types related to documents managed in
-                            other modules of the application. Notes, document events, follow-ups, employee tasks, for
-                            example, can be added.</p>
-                        <div class="container">
-                            <div class="columns is-multiline">
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/GCPWEB.png" target="_blank">
-                                        <img src="img/GCPWEB.png" alt="GCPWEB" class="zoomable-image">
-                                    </a>
-                                </div>
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/GCPWEB2.png" target="_blank">
-                                        <img src="img/GCPWEB2.png" alt="GCPWEB2" class="zoomable-image">
-                                    </a>
-                                </div>
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/GCPWEB3.png" target="_blank">
-                                        <img src="img/GCPWEB3.png" alt="GCPWEB3" class="zoomable-image">
-                                    </a>
-                                </div>
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/GCPWEB4.png" target="_blank">
-                                        <img src="img/GCPWEB4.png" alt="GCPWEB4" class="zoomable-image">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="subtitle mb-0 lang-fr">Contrôles d'interface personnalisés</p>
-                        <p class="subtitle mb-0 lang-en" style="display: none">Custom controls</p>
-                        <p class="my-2 lang-fr">Pour réaliser les projets et modules chez DRC Solutions, j'ai dû concevoir des contrôles personnaliés pour répondre à des besoins spécifiques et améliorer l'expérience
-                            utilisateur. Ce menu déroulant personnalisé composé d'une textbox et d'un bouton ASP a comme particularité d'intégrer une gridview a plusieurs colonnes. L'utilisateur peut sélectionner
-                            un rang en particulier tout en disposant des données dans les colonnes configurées en back-end. Il est également possible de rechercher un rang en écrivant dans la textbox. Si la gridview est défilée jusqu'au bout, 50 autres rangs se rajoutent, pour permettre de ne pas charger l'entièreté des données et gruger des ressources inutilement. Chaque 
-                            intéraction avec l'utilisateur est configurée en Javascript avec des PostBack ASP.NET qui rafraîchit en async un UpdatePanel pour manipuler les données affichées dans la GridView.
-                        </p>
-                        <p class="my-2 lang-en" style="display: none">
-                            To accomplish projects and modules at DRC Solutions, I had to design custom controls to meet specific needs and enhance the user experience. This custom dropdown menu, consisting of a textbox and an ASP button, has the unique feature of integrating a gridview with multiple columns. The user can select a particular row while having data displayed in the configured backend columns. It is also possible to search for a row by typing in the textbox. If the gridview is scrolled to the end, 50 additional rows are added to avoid loading all the data and unnecessarily consuming resources. Each interaction with the user is configured in Javascript with ASP.NET PostBacks that asynchronously refresh an UpdatePanel to manipulate the data displayed in the GridView.                  </p>
-                        </p>
-                        </div>
-                </div>
-            </div>
-            <div class="card my-2">
-                <div class="card-content">
-                    <div class="container">
-                        <div class="columns is-multiline">
-                            <div class="column is-11-desktop">
-                                <p class="title lang-fr">Conception d'interfaces Web Blazor et migration de librairies .Net</p>
-                                <p class="title lang-en" style="display: none">Blazor Web Interface Design and .Net Library Migration</p>
-                                <p class="subtitle lang-fr">J'ai également contribué à la conception et l'adaptation de plusieurs modules en front-end et back-end pour la nouvelle application Blazor (C#).</p>
-                                <p class="subtitle lang-en" style="display: none">I have also contributed to the design and adaptation of several modules in both front-end and back-end for the new Blazor (C#) application.</p>
-                            </div>
-                            <div class="column is-1-desktop is-flex is-justify-content-flex-end is-align-items-center">
-                                <button id="btnExpWEB" class="button is-rounded is-medium expander-button">
-                                    <span class="icon">
-                                        <i class="fas fa-arrow-down"></i>
-                                    </span>
-                                    <span class="icon">
-                                        <i class="fas fa-arrow-up"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="expander-content hidden my-2">
-                        <p class="mb-2 lang-fr">Après avoir reproduit les différents modules du logiciel comptable DRC-PRO en ASP.Net, ma nouvelle tâche était de passer à Blazor WebAssembly, avec un back-end en C#. Cela impliquait la migration complète des différentes bibliothèques .Net essentielles au bon fonctionnement de la solution. Pour ce faire, j'ai appris à utiliser l'outil de migration .Net, à travers l'interface de Visual Studio ainsi qu'en ligne de commande. Cela impliquait de tester chaque bibliothèque .Net Framework 4.8 et de les migrer vers .Net Core 7. </p>
-                            <p class="my-2 lang-en" style="display: none">After replicating the various modules of the DRC-PRO accounting software in ASP.Net, my next task was to transition to Blazor WebAssembly, with a C# back-end. This involved the complete migration of the various essential .Net libraries for the solution to function properly. To do this, I learned to use the .Net migration tool, both through the Visual Studio interface and the command line. This process required testing each .Net Framework 4.8 library and migrating them to .Net Core 7.</p>
-                            <p class="subtitle mb-0 lang-fr">Module GOP (Gestion des Opérations Pro)</p>
-                        <p class="subtitle mb-0 lang-en" style="display: none">GOP Module (Operations
-                            Management Pro)</p>
-                            <p class="my-2 lang-fr">Dans l'application Blazor DRC-PRO, j'ai utilisé les bibliothèques Razden pour les composants front-end, ce qui m'a permis de bénéficier de contrôles réutilisables et configurables, facilitant ainsi le développement de l'interface utilisateur. J'ai également utilisé Blazored pour gérer les modals et le passage de données entre les composants via des paramètres et des événements, assurant une interaction fluide dans l'application.</p>
-                            <p class="my-2 lang-en" style="display: none">In the DRC-PRO Blazor application, I used the Razden libraries for front-end components, which allowed me to leverage reusable and customizable controls, streamlining UI development. I also used Blazored to manage modals and pass data between components via parameters and events, ensuring smooth interaction within the app.</p>
-                        <div class="container">
-                            <div class="columns is-multiline">
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/GOPBLAZOR.png" target="_blank">
-                                        <img src="img/GOPBLAZOR.png" alt="GOPBLAZOR" class="zoomable-image">
-                                    </a>
-                                </div>
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/GOPBLAZOR2.png" target="_blank">
-                                        <img src="img/GOPBLAZOR2.png" alt="GOPBLAZOR2" class="zoomable-image">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>    
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <h2 class="title is-2 lang-fr">Projets d'école</h2>
-            <h2 class="title is-2 lang-en" style="display: none">School Projects</h2>
+        <div class="column is-one-third has-text-centered">
+          <div class="box">
+            <h3 class="title is-4">Analyse d’impact et migration de projet</h3>
             <p></p>
+          </div>
         </div>
-        <div class="container">
-            <div class="card my-2">
-                <div class="card-content">
-                    <div class="container">
-                        <div class="columns is-multiline">
-                            <div class="column is-11-desktop">
-                                <p class="title">Magasin TGM</p>
-                                <p class="subtitle"></p>
-                            </div>
-                            <div class="column is-flex is-justify-content-flex-end is-align-items-center">
-                                <button id="btnExpEco" class="button is-rounded is-medium expander-button">
-                                    <span class="icon">
-                                        <i class="fas fa-arrow-down d-none"></i>
-                                    </span>
-                                    <span class="icon">
-                                        <i class="fas fa-arrow-up"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="expander-content hidden my-2">
-                        <p class="subtitle lang-fr">Catalogue d'items</p>
-                        <p class="subtitle lang-en" style="display: none">Item Catalog</p>
-                        <div class="container">
-                            <div class="columns is-multiline">
-                                <!--
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/TGMCat.png" target="_blank">
-                                        <img src="img/TGMCat.png" alt="TGMCat" class="zoomable-image">
-                                    </a>
-                                </div>
-                                                            --><!--
-                                <video id="TGMCatVideo" loop
-                                    class="column is-6-desktop is-12-tablet is-12-mobile image-container zoomable-image">
-                                    <source src="https://youtu.be/uHrl98-7glA" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>-->
+        <div class="column is-one-third has-text-centered">
+          <div class="box">
+            <h3 class="title is-4">Gestion de projet TI</h3>
+          </div>
+        </div>
+        <div class="column is-one-third has-text-centered">
+          <div class="box">
+            <h3 class="title is-4">Gestion de CMS</h3>
+            <p></p>
+          </div>
+        </div>
+        <div class="column is-one-third has-text-centered">
+          <div class="box">
+            <h3 class="title is-4">Configuration d’environnement de travail </h3>
+            <p></p>
+          </div>
+        </div>
+        <div class="column is-one-third has-text-centered">
+          <div class="box">
+            <h3 class="title is-4">Support informatique</h3>
+            <p></p>
+          </div>
+        </div>
+      </div>
 
-                                <iframe id="TGMCatVideo" src="https://www.youtube.com/embed/uHrl98-7glA" frameborder="0"
-                                    allow="autoplay; encrypted-media" allowfullscreen
-                                    class="column is-6-desktop is-12-tablet is-12-mobile image-container zoomable-image"></iframe>
+      <!-- Logos des technologies -->
+      <div class="columns is-multiline is-centered is-mobile mt-5">
+        <div class="column is-one-quarter has-text-centered">
+          <p class="is-size-5 has-text-weight-bold">C++ / C# / VB.NET</p>
+        </div>
+        <div class="column is-one-quarter has-text-centered">
+          <span class="icon is-large">
+            <i class="fas fa-users fa-3x"></i>
+          </span>
+          <p>Collaboration équipes</p>
+        </div>
+        <div class="column is-one-quarter has-text-centered">
+          <span class="icon is-large">
+            <i class="fas fa-code fa-3x"></i>
+          </span>
+          <p>HTML/CSS</p>
+        </div>
+        <div class="column is-one-quarter has-text-centered">
+          <span class="icon is-large">
+            <i class="fab fa-php fa-3x"></i>
+          </span>
+          <p>PHP</p>
+        </div>
+        <div class="column is-one-quarter has-text-centered">
+          <span class="icon is-large">
+            <i class="fas fa-database fa-3x"></i>
+          </span>
+          <p>SQL Server / MySQL</p>
+        </div>
+        <div class="column is-one-quarter has-text-centered">
+          <span class="icon is-large">
+            <i class="fab fa-js fa-3x"></i>
+          </span>
+          <p>JavaScript / jQuery / JSON</p>
+        </div>
+        <div class="column is-one-quarter has-text-centered">
+          <p class="is-size-5 has-text-weight-bold">ASP.NET 4.8 / 6 / 7</p>
+        </div>
 
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/TGMCat2.png" target="_blank">
-                                        <img src="img/TGMCat2.png" alt="TGMCat" class="zoomable-image">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="subtitle lang-fr">Gestion de réservations</p>
-                        <p class="subtitle lang-en" style="display: none">Reservation Management</p>
-                        <div class="container">
-                            <div class="columns is-multiline">
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/TGMReserv.png" target="_blank">
-                                        <img src="img/TGMReserv.png" alt="TGMReserv" class="zoomable-image">
-                                    </a>
-                                </div>
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/TGMReserv2.png" target="_blank">
-                                        <img src="img/TGMReserv2.png" alt="TGMReserv" class="zoomable-image">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="subtitle lang-fr">Gestion d'items</p>
-                        <p class="subtitle lang-en" style="display: none">Item Management</p>
-                        <div class="container">
-                            <div class="columns is-multiline">
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/TGMItem.png" target="_blank">
-                                        <img src="img/TGMItem.png" alt="TGMItem" class="zoomable-image">
-                                    </a>
-                                </div>
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/TGMItem2.png" target="_blank">
-                                        <img src="img/TGMItem2.png" alt="TGMItem" class="zoomable-image">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="subtitle lang-fr">Panier</p>
-                        <p class="subtitle lang-en" style="display: none">Shopping Cart</p>
-                        <div class="container">
-                            <div class="columns is-multiline">
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/TGMPanier.png" target="_blank">
-                                        <img src="img/TGMPanier.png" alt="TGMPanier" class="zoomable-image">
-                                    </a>
-                                </div>
-                                <div class="column is-6-desktop is-12-tablet is-12-mobile image-container">
-                                    <a href="img/TGMPanier2.png" target="_blank">
-                                        <img src="img/TGMPanier2.png" alt="TGMPanier" class="zoomable-image">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="subtitle lang-fr">Liens des démos</p>
-                        <p class="subtitle lang-en" style="display: none">Demo links</p>
-                        <div class="buttons is-centered is-dark">
-                            <a href="https://youtu.be/KUTmg80XncI" class="button is-dark is-small">
-                                <span class="icon">
-                                    <i class="fas fa-video"></i>
-                                </span>
-                                <span>Admin</span>
-                            </a>
-                            <a href="https://youtu.be/k__4s6GCCG8" class="button is-dark is-small">
-                                <span class="icon">
-                                    <i class="fas fa-video"></i>
-                                </span>
-                                <span>Enseignant</span>
-                            </a>
-                            <a href="https://youtu.be/rA_FOyNx4QY" class="button is-dark is-small">
-                                <span class="icon">
-                                    <i class="fas fa-video"></i>
-                                </span>
-                                <span>Étudiant</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="column is-one-quarter has-text-centered">
+          <span class="icon is-large">
+            <i class="fab fa-git-alt fa-3x"></i>
+          </span>
+          <p>Git / GitHub</p>
         </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <h2 class="title is-2 lang-fr">Mon portfolio</h2>
-            <h2 class="title is-2 lang-en" style="display: none">My portfolio</h2>
-            <p class="subtitle lang-fr">Ce site Web portfolio a été conçu par moi-même avec le framework de style
-                CSS Bulma, pour faire changement de Bootstrap. Les contrôles expander avec les boutons pour montrer
-                et cacher le contenu sont faits manuellement avec Javascript et Jquery</p>
-            <p class="subtitle lang-en" style="display: none">This website portfolio was designed by myself using
-                the CSS style framework Bulma, for a change from Bootstrap. The expander controls with buttons to
-                show and hide content are manually done with Javascript and JQuery.</p>
+        <div class="column is-one-quarter has-text-centered">
+          <span class="icon is-large">
+            <i class="fab fa-symfony fa-3x"></i>
+          </span>
+          <p>Symfony</p>
         </div>
-    </section>
-    <footer class="footer">
-        <!-- Vos boutons en bas de la page -->
-        <div class="container">
-            <div class="columns is-vcentered">
-                <!-- Première colonne pour les deux premiers boutons -->
-                <div class="column">
-                    <button class="button is-dark is-medium lang-fr" onclick="scrollToTop()">Remonter</button>
-                    <button class="button is-dark is-medium lang-en" onclick="scrollToTop()" style="display: none">Scroll to Top</button>
-                    <button class="button is-dark is-medium lang-fr" onclick="window.location.href='mailto:alexchevarie@hotmail.ca'">Me Contacter</button>
-                    <button class="button is-dark is-medium lang-en" onclick="window.location.href='mailto:alexchevarie@hotmail.ca'" style="display: none">Contact Me</button>
-                </div>
-                <!-- Deuxième colonne pour les deux derniers boutons -->
-                <div class="column has-text-right">
-                    <button class="button is-dark is-medium" onclick="showFrenchContent()">Français</button>
-                    <button class="button is-dark is-medium" onclick="showEnglishContent()">English</button>
-                </div>
-            </div>
+        <div class="column is-one-quarter has-text-centered">
+          <span class="icon is-large">
+            <i class="fab fa-windows fa-3x"></i>
+          </span>
+          <p>WPF</p>
         </div>
-        <div class="content has-text-centered">
-            <p>
-                © 2024 Mon Portfolio - Alex Chevarie
-            </p>
+        <div class="column is-one-quarter has-text-centered">
+          <span class="icon is-large">
+            <i class="fab fa-bootstrap fa-3x"></i>
+          </span>
+          <p>Bootstrap</p>
         </div>
-    </footer>
+        <div class="column is-one-quarter has-text-centered">
+          <span class="icon is-large">
+            <i class="fab fa-microsoft fa-3x"></i>
+          </span>
+          <p>Azure</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <h2 class="title is-2 has-text-centered">Portfolio</h2>
+      <div class="columns is-multiline">
+        <div class="column is-half">
+          <div class="box portfolio-item" onclick="openModal('modalDRCPRO')">
+            <h4 class="title is-4">Refonte logicielle comptable (Blazor)</h4>
+            <p>Mise en œuvre d'une interface moderne pour la gestion de documents et de tâches en entreprise.</p>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="box portfolio-item" onclick="openModal('modalTGM')">
+            <h4 class="title is-4">Application de réservation et gestion d'inventaire</h4>
+            <p>Application Web ASP.NET 6.0 pour la gestion des réservations et de l'inventaire, avec hébergement cloud
+              sur Azure.</p>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="box portfolio-item" onclick="openModal('modalMigration')">
+            <h4 class="title is-4">Migration de projet .Net</h4>
+            <p>Développement d'une solution complète d'inventaire pour PME (ASP.NET + SQL Server).</p>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="box portfolio-item" onclick="openModal('modalSoumission')">
+            <h4 class="title is-4">Module de soumission Wordpress API</h4>
+            <p>Développement d'une solution complète d'inventaire pour PME (ASP.NET + SQL Server).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div id="modalMigration" class="modal">
+    <div class="modal-background" onclick="closeModal('modalMigration')"></div>
+    <div class="modal-content box">
+      <h4 class="title is-4">Migration de librairies .Net</h4>
+      <p>Après avoir reproduit les différents modules du logiciel comptable DRC-PRO en ASP.NET, ma tâche a évolué vers
+        la migration complète de la solution vers
+        Blazor WebAssembly avec un back-end en C#. Avant d'amorcer la migration, j'ai réalisé une analyse d'impact pour
+        évaluer les dépendances critiques, les
+        risques techniques et les ajustements nécessaires. Le processus a impliqué la conversion des bibliothèques clés
+        du projet, initialement en .NET Framework 4.8,
+        vers .NET 7. J'ai utilisé les outils de migration .NET, aussi bien via Visual Studio que par ligne de commande,
+        et j'ai rigoureusement testé chaque bibliothèque
+        pour assurer la compatibilité et la stabilité de la nouvelle architecture.</p>
+    </div>
+    <button class="modal-close is-large" aria-label="close" onclick="closeModal('modalMigration')"></button>
+  </div>
+
+  <div id="modalSoumission" class="modal">
+    <div class="modal-background" onclick="closeModal('modalSoumission')"></div>
+    <div class="modal-content box">
+      <h4 class="title is-4">Module de soumission Wordpress API</h4>
+      <p>J'ai entièrement conçu et développé un formulaire de soumission sur mesure en Blazor pour une entreprise
+        québécoise spécialisée dans
+        la fabrication de rampes. Ce formulaire a été intégré dans une nouvelle page ajoutée au site WordPress de
+        l'entreprise. La solution utilise l'API WordPress
+        pour récupérer dynamiquement les items du panier client et générer une soumission personnalisée. Cette
+        soumission est ensuite automatiquement connectée au
+        système de gestion intégré (DRC-PRO) de l'entreprise, facilitant ainsi la centralisation des opérations
+        commerciales et optimisant le traitement des demandes.
+        Ce projet m'a permis de combiner le développement en Blazor, l'intégration API, ainsi que l'interopérabilité
+        entre un site WordPress et une application d'affaires interne.</p>
+      <!-- Section photos -->
+      <div class="columns is-multiline is-centered mt-5">
+        <div class="column is-one-third has-text-centered">
+          <a href="img/Form1.png" target="_blank">
+            <img src="img/Form1.png" alt="Soumission étape 1" class="image">
+          </a>
+        </div>
+        <div class="column is-one-third has-text-centered">
+          <a href="img/Form2.png" target="_blank">
+            <img src="img/Form2.png" alt="Soumission étape 2" class="image">
+          </a>
+        </div>
+        <div class="column is-one-third has-text-centered">
+          <a href="img/Form3.png" target="_blank">
+            <img src="img/Form3.png" alt="Soumission étape 3" class="image">
+          </a>
+        </div>
+      </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close" onclick="closeModal('modalSoumission')"></button>
+  </div>
+
+  <div id="modalTGM" class="modal">
+    <div class="modal-background" onclick="closeModal('modalTGM')"></div>
+    <div class="modal-content box">
+
+      <div class="content mb-5">
+        <h4 class="title is-4">Application Web « Magasin TGM »</h4>
+        <p class="subtitle is-6">Département de Génie Mécanique du Cégep de Sherbrooke — Septembre 2023</p>
+
+        <ul>
+          <li>Réalisation d’une application ASP.NET 6.0 pour la gestion des réservations de matériel étudiant et de
+            l'inventaire interne.</li>
+          <li>Design et intégration d’un catalogue d’items et de catégories responsive avec recherche et filtres.</li>
+          <li>Gestion de l’authentification via Entity Framework.</li>
+          <li>Base de données SQL Server.</li>
+          <li>Hébergement cloud via Microsoft Azure.</li>
+          <li>Système déployé et pleinement opérationnel.</li>
+        </ul>
+      </div>
+
+
+      <!-- Catalogue d'items -->
+      <h5 class="subtitle is-5 mt-4">Catalogue d'items</h5>
+      <div class="columns is-multiline">
+        <div class="column is-6-desktop is-12-tablet is-12-mobile">
+          <div class="embed-responsive">
+            <iframe id="TGMCatVideo" src="https://www.youtube.com/embed/uHrl98-7glA" frameborder="0"
+              allow="autoplay; encrypted-media" allowfullscreen style="width: 100%; height: 315px;">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="column is-6">
+          <a href="img/TGMCat2.png" target="_blank">
+            <img src="img/TGMCat2.png" alt="Catalogue Items" class="image">
+          </a>
+        </div>
+      </div>
+
+      <!-- Gestion de réservations -->
+      <h5 class="subtitle is-5 mt-4">Gestion de réservations</h5>
+      <div class="columns is-multiline">
+        <div class="column is-6">
+          <a href="img/TGMReserv.png" target="_blank">
+            <img src="img/TGMReserv.png" alt="Gestion Réservations" class="image">
+          </a>
+        </div>
+        <div class="column is-6">
+          <a href="img/TGMReserv2.png" target="_blank">
+            <img src="img/TGMReserv2.png" alt="Gestion Réservations 2" class="image">
+          </a>
+        </div>
+      </div>
+
+      <!-- Gestion d'items -->
+      <h5 class="subtitle is-5 mt-4">Gestion d'items</h5>
+      <div class="columns is-multiline">
+        <div class="column is-6">
+          <a href="img/TGMItem.png" target="_blank">
+            <img src="img/TGMItem.png" alt="Gestion Items" class="image">
+          </a>
+        </div>
+        <div class="column is-6">
+          <a href="img/TGMItem2.png" target="_blank">
+            <img src="img/TGMItem2.png" alt="Gestion Items 2" class="image">
+          </a>
+        </div>
+      </div>
+
+      <!-- Panier -->
+      <h5 class="subtitle is-5 mt-4">Panier</h5>
+      <div class="columns is-multiline">
+        <div class="column is-6">
+          <a href="img/TGMPanier.png" target="_blank">
+            <img src="img/TGMPanier.png" alt="Panier" class="image">
+          </a>
+        </div>
+        <div class="column is-6">
+          <a href="img/TGMPanier2.png" target="_blank">
+            <img src="img/TGMPanier2.png" alt="Panier 2" class="image">
+          </a>
+        </div>
+      </div>
+
+      <!-- Liens démos vidéos -->
+      <h5 class="subtitle is-5 mt-4">Liens des démos</h5>
+      <div class="buttons is-centered">
+        <a href="https://youtu.be/KUTmg80XncI" target="_blank" class="button is-dark is-small">
+          <span class="icon"><i class="fas fa-video"></i></span>
+          <span>Admin</span>
+        </a>
+        <a href="https://youtu.be/k__4s6GCCG8" target="_blank" class="button is-dark is-small">
+          <span class="icon"><i class="fas fa-video"></i></span>
+          <span>Enseignant</span>
+        </a>
+        <a href="https://youtu.be/rA_FOyNx4QY" target="_blank" class="button is-dark is-small">
+          <span class="icon"><i class="fas fa-video"></i></span>
+          <span>Étudiant</span>
+        </a>
+      </div>
+
+    </div>
+    <button class="modal-close is-large" aria-label="close" onclick="closeModal('modalTGM')"></button>
+  </div>
+
+  <div id="modalDRCPRO" class="modal">
+    <div class="modal-background" onclick="closeModal('modalDRCPRO')"></div>
+    <div class="modal-content box">
+      <div class="content mb-5">
+        <h4 class="title is-4">Conception d'interfaces pour DRC-PRO</h4>
+        <p class="subtitle is-6">DRC Solutions Inc. Décembre 2021 – aujourd'hui</p>
+        <p class="subtitle is-6">
+          DRC Solutions est une entreprise en démarrage située à Lac-Beauport, spécialisée dans la conception de
+          logiciels pour une variété de clients. Ils se concentrent particulièrement sur les logiciels comptables, en
+          développant des solutions innovantes adaptées aux besoins spécifiques de leur clientèle. En tant que
+          développeur chez DRC Solutions, j'ai eu l'opportunité de participer à divers projets, notamment le
+          développement de modules, la migration de technologies WinForms vers WPF, ainsi que le développement
+          d'applications avec ASP.NET. Cette expérience m'a permis d'acquérir de solides compétences en conception
+          d'interfaces utilisateur (UI) et en développement front-end, avec un souci constant de la convivialité et de
+          l'expérience utilisateur.
+        </p>
+      </div>
+
+      <h5 class="subtitle is-5 mt-4 mb-1">Conception d'interfaces WPF</h5>
+      <p class="subtitle is-6">Contribution au développement du module GIO du logiciel DRC-PRO, offrant aux
+        gestionnaires une vue d'ensemble
+        des opérations et un accès rapide aux détails. Ce module hybride combine des UserControl WinForms et WPF en
+        attendant la migration complète, et j'ai participé à l'intégration des éléments d'affichage, du menu principal
+        et de la liste des rapports.</p>
+      <div class="columns is-multiline">
+        <div class="column is-6">
+          <a href="img/GIOWPF.png" target="_blank">
+            <img src="img/GIOWPF.png" alt="GIOWPF" class="image">
+          </a>
+        </div>
+        <div class="column is-6">
+          <a href="img/GIOWPF2.png" target="_blank">
+            <img src="img/GIOWPF2.png" alt="GIOWPF2" class="image">
+          </a>
+        </div>
+      </div>
+
+      <p class="subtitle is-6">Développement complet de l'interface utilisateur du module GOP, cœur du logiciel DRC-PRO,
+        permettant la création de soumissions, commandes et factures. J'ai conçu l'ensemble du design en WPF en
+        utilisant des contrôles personnalisés HandyControl pour optimiser l'affichage et la consultation dynamique des
+        documents et des informations clients.</p>
+      <div class="columns is-multiline">
+        <div class="column is-6">
+          <a href="img/GOPWPF.png" target="_blank">
+            <img src="img/GOPWPF.png" alt="GOPWPF" class="image">
+          </a>
+        </div>
+      </div>
+
+      <h5 class="subtitle is-5 mt-4 mb-1">Conception d'interfaces Web ASP.Net</h5>
+      <p class="subtitle is-6">J'ai contribué au développement de l'application comptable Web en ASP.NET en concevant
+        plusieurs modules front-end et back-end en VB.NET.</p>
+      <p class="subtitle is-6">Module GIO (Gestion Intégrée des Opérations)</p>
+      <div class="columns is-multiline">
+        <div class="column is-6">
+          <a href="img/GIOWEB.png" target="_blank">
+            <img src="img/GIOWEB.png" alt="GIOWEB" class="image">
+          </a>
+        </div>
+        <div class="column is-6">
+          <a href="img/GIOWEB2.png" target="_blank">
+            <img src="img/GIOWEB2.png" alt="GIOWEB2" class="image">
+          </a>
+        </div>
+      </div>
+      <p class="subtitle is-6">Développement du module GCP de l'application DRC-PRO, utilisant le plugin FullCalendar
+        pour gérer des événements variés liés aux documents, suivis et tâches des employés, avec une intégration directe
+        aux autres modules du système.</p>
+      <div class="columns is-multiline">
+        <div class="column is-6">
+          <a href="img/GIOWEB.png" target="_blank">
+            <img src="img/GCPWEB.png" alt="GCPWEB" class="image">
+          </a>
+        </div>
+        <div class="column is-6">
+          <a href="img/GCPWEB2.png" target="_blank">
+            <img src="img/GCPWEB2.png" alt="GCPWEB2" class="image">
+          </a>
+        </div>
+      </div>
+      <p class="subtitle is-6">Conception de contrôles d'interface personnalisés pour répondre aux besoins spécifiques
+        de DRC Solutions, dont un menu déroulant ASP.NET combinant une TextBox et une GridView multi-colonnes. Ce
+        contrôle permet la sélection assistée avec recherche dynamique, chargement progressif des données pour optimiser
+        la performance, et gestion des interactions utilisateur via JavaScript et PostBacks asynchrones sur UpdatePanel.
+      </p>
+      <div class="columns is-multiline">
+        <div class="column is-6">
+          <a href="img/GIOWEB3.png" target="_blank">
+            <img src="img/GCPWEB3.png" alt="GCPWEB3" class="image">
+          </a>
+        </div>
+        <div class="column is-6">
+          <a href="img/GCPWEB4.png" target="_blank">
+            <img src="img/GCPWEB4.png" alt="GCPWEB4" class="image">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="title is-2 has-text-centered">Contact</h2>
+      <div class="has-text-centered">
+        <a class="button is-primary" href="mailto:alexchevarie@hotmail.ca">Écrivez-moi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>© 2024 Alex Chevarie - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script>
+    // Animation douce au scroll
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // Dark mode toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    // Modals
+    function openModal(id) {
+      document.getElementById(id).classList.add('is-active');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('is-active');
+    }
+  </script>
+
 </body>
 
 </html>
