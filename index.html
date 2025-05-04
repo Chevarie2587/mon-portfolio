@@ -343,6 +343,13 @@
             <p>Développement d'une solution complète d'inventaire pour PME (ASP.NET + SQL Server).</p>
           </div>
         </div>
+        <div class="column is-half">
+          <div class="box portfolio-item" onclick="openModal('modalAgentRdv')">
+            <h4 class="title is-4">Agent vocal IA – Prise de rendez-vous</h4>
+            <p>Développement d’un assistant vocal intelligent intégrant la reconnaissance vocale, l’IA générative et
+              Google Calendar.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -602,6 +609,51 @@
     </div>
     <button class="modal-close is-large" aria-label="close" onclick="closeModal('modalDRCPRO')"></button>
   </div>
+  <div id="modalAgentRdv" class="modal">
+    <div class="modal-background" onclick="closeModal('modalAgentRdv')"></div>
+    <div class="modal-content box">
+      <h4 class="title is-4">Agent vocal IA – Prise de rendez-vous</h4>
+      <p>
+        Dans le cadre d’un projet personnel, j’ai développé un assistant vocal basé sur Python capable d’enregistrer une
+        demande orale,
+        de la transcrire automatiquement avec Whisper, puis d’en extraire l’intention (jour, heure, type de rendez-vous)
+        à l’aide d’un modèle GPT (via l’API OpenRouter) tout en se structurant selon des contraintes pré-déterminées.
+        L’événement est ensuite ajouté dynamiquement à Google Calendar à l’aide de l’API officielle.
+        L’agent vocal confirme le rendez-vous par synthèse vocale avec pyttsx3.
+      </p>
+      <p>
+        Ce projet m’a permis d’explorer l’intégration de plusieurs technologies : reconnaissance vocale
+        (SpeechRecognition), IA générative,
+        traitement de texte en langage naturel, OAuth2 Google et gestion d’un flux conversationnel voix-à-voix.
+        Il est conçu pour être exécuté localement de façon sécurisée, sans dépendance à un service payant comme l’API
+        OpenAI.
+      </p>
+      <p>
+        Mon intention est de réutiliser cette logique et l’adapter à des réalités concrètes d’entreprise,
+        par exemple pour automatiser la prise de rendez-vous clients, les réponses à des appels entrants ou la création
+        d'événements internes.
+      </p>
+      <div class="columns mt-2 is-multiline">
+        <div class="column is-4">
+          <a href="img/AiAgent1.png" target="_blank">
+            <img src="img/AiAgent1.png" alt="AiAgent1" class="image">
+          </a>
+        </div>
+        <div class="column is-4">
+          <a href="img/AiAgent2.png" target="_blank">
+            <img src="img/AiAgent2.png" alt="AiAgent2" class="image">
+          </a>
+        </div>
+        <div class="column is-4">
+          <a href="img/AiAgent3.png" target="_blank">
+            <img src="img/AiAgent3.png" alt="AiAgent3" class="image">
+          </a>
+        </div>
+      </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close" onclick="closeModal('modalAgentRdv')"></button>
+  </div>
+
 
   <!-- Contact -->
   <section id="contact" class="section">
