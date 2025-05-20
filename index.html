@@ -77,6 +77,14 @@
       color: #dddddd !important;
     }
 
+    .dark-mode .title {
+      color: var(--dark-text) !important;
+    }
+
+    .dark-mode img.icon-invert {
+      filter: invert(1);
+    }
+
     .modal {
       display: none;
     }
@@ -121,6 +129,11 @@
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
       transition: 0.3s ease;
     }
+
+    .image.is-45x45 {
+      width: 50px;
+      height: 50px;
+    }
   </style>
 </head>
 
@@ -140,10 +153,11 @@
         </figure>
 
         <h1 class="title is-1">Alex Chevarie</h1>
-        <h2 class="subtitle is-3">TI | Développement | Gestion de projet</h2>
+        <h2 class="subtitle is-3">Technologies | Analyse | Solutions d'affaires</h2>
         <p class="subtitle is-5">
-          Je suis un jeune étudiant de l'Université de Sherbrooke en recherche d'opportunités pour mettre en pratique
-          mes compétences et poursuivre mon développement professionnel.
+          Étudiant en technologies des affaires à l’Université de Sherbrooke, je cherche à relever de nouveaux défis
+          pour appliquer
+          mes compétences, apprendre activement et contribuer à des projets technologiques concrets.
         </p>
         <div class="buttons is-centered mt-4">
           <a class="button is-light" href="CV_AlexChevarie.pdf">
@@ -166,20 +180,17 @@
       <h2 class="title is-2 has-text-centered">À propos</h2>
       <div class="content has-text-centered">
         <p>
-          Diplômé en Techniques de l'informatique au Cégep de Sherbrooke et actuellement étudiant au Baccalauréat en
-          Administration des affaires, concentration Gestion des technologies d'affaires à l'Université de Sherbrooke,
-          je combine une solide formation technique à une compréhension des enjeux organisationnels.
+          Diplômé en Techniques de l'informatique et maintenant étudiant au baccalauréat en Gestion des technologies
+          d'affaires à l’Université de Sherbrooke, je combine une base technique solide à une compréhension grandissante
+          des réalités organisationnelles.
         </p>
         <p>
-          Depuis ma dernière année de CÉGEP, j'ai acquis une expérience concrète en développement logiciel et Web,
-          consolidée à temps plein depuis décembre 2022 chez DRC Solutions, où j'ai contribué à plusieurs projets
-          stratégiques.
-          Curieux de nature et passionné par les nouvelles technologies, je m'investis activement dans la modernisation
-          des systèmes d'information et l'intégration de solutions innovantes. Ma facilité à apprendre rapidement, à
-          m'adapter à différents environnements techniques, ainsi que ma capacité à travailler sous pression m'ont
-          permis de livrer des résultats concrets dans des contextes exigeants.
-          Je souhaite aujourd'hui mettre mes compétences TI au service de projets d'analyse d'affaires, de
-          transformation numérique, de gestion de solutions ou de développement applicatif.
+          Depuis ma dernière année de CÉGEP, j’ai eu la chance de me plonger concrètement dans le développement logiciel
+          et Web, notamment chez DRC Solutions, où je contribue à des projets variés depuis plus de trois ans. Curieux,
+          passionné de techno et toujours prêt à apprendre, j’aime m’investir dans des initiatives de modernisation des
+          systèmes et d’intégration de solutions innovantes. Aujourd’hui, je souhaite mettre cette expérience au service
+          de projets en intelligence d’affaires, analyse de données, transformation numérique, gestion de solutions ou
+          développement.
         </p>
       </div>
     </div>
@@ -242,25 +253,27 @@
       <!-- Logos des technologies -->
       <div class="columns is-multiline is-centered is-mobile mt-5">
         <div class="column is-one-quarter has-text-centered">
-          <p class="is-size-5 has-text-weight-bold">C++ / C# / VB.NET</p>
+          <figure class="image is-64x64 is-inline-block">
+            <img src="https://cdn.simpleicons.org/dotnet/000000" alt=".NET logo" class="icon-invert">
+          </figure>
         </div>
         <div class="column is-one-quarter has-text-centered">
-          <span class="icon is-large">
-            <i class="fas fa-users fa-3x"></i>
-          </span>
-          <p>Collaboration équipes</p>
+          <figure class="image is-45x45 is-inline-block">
+            <img src="img/icons8-microsoft-office-2019-50.png" alt="Microsoft 365 icon" class="icon-invert" />
+          </figure>
+          <p>Microsoft 365</p>
         </div>
         <div class="column is-one-quarter has-text-centered">
           <span class="icon is-large">
             <i class="fas fa-code fa-3x"></i>
           </span>
-          <p>HTML/CSS</p>
+          <p>C++ / C# / VB</p>
         </div>
         <div class="column is-one-quarter has-text-centered">
           <span class="icon is-large">
-            <i class="fab fa-php fa-3x"></i>
+            <i class="fab fa-python fa-3x"></i>
           </span>
-          <p>PHP</p>
+          <p>Python</p>
         </div>
         <div class="column is-one-quarter has-text-centered">
           <span class="icon is-large">
@@ -275,21 +288,26 @@
           <p>JavaScript / jQuery / JSON</p>
         </div>
         <div class="column is-one-quarter has-text-centered">
-          <p class="is-size-5 has-text-weight-bold">ASP.NET</p>
-        </div>
-
-        <div class="column is-one-quarter has-text-centered">
           <span class="icon is-large">
             <i class="fab fa-git-alt fa-3x"></i>
           </span>
           <p>Git / GitHub</p>
         </div>
         <div class="column is-one-quarter has-text-centered">
-          <span class="icon is-large">
-            <i class="fab fa-symfony fa-3x"></i>
-          </span>
-          <p>Symfony</p>
+          <figure class="image is-45x45 is-inline-block">
+            <img src="https://cdn.simpleicons.org/google/000000" alt="Google logo" class="icon-invert" />
+          </figure>
+          <p>Google Workspace</p>
         </div>
+        <div class="column is-one-quarter has-text-centered">
+          <figure class="image is-45x45 is-inline-block">
+            <img src="https://img.icons8.com/ios-filled/50/000000/flow-chart.png" alt="Diagramme UML / Architecture"
+              class="icon-invert" />
+          </figure>
+          <p>Modélisation / Architecture</p>
+        </div>
+
+
         <div class="column is-one-quarter has-text-centered">
           <span class="icon is-large">
             <i class="fab fa-windows fa-3x"></i>
