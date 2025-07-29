@@ -33,6 +33,31 @@
       transition: background 0.5s, color 0.5s;
     }
 
+    .hero.is-fullheight-with-navbar {
+      background-image: url('img/back.png') !important;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+    }
+
+    .hero.is-fullheight-with-navbar .title,
+    .hero.is-fullheight-with-navbar .subtitle,
+    .hero.is-fullheight-with-navbar p {
+      color: white !important;
+    }
+
+    .hero.is-fullheight-with-navbar .button {
+      background-color: transparent;
+      border: 1px solid white;
+      color: white;
+    }
+
+    .hero.is-fullheight-with-navbar .button:hover {
+      background-color: white;
+      color: #333;
+    }
+
     .section {
       padding: 3rem 1.5rem;
       opacity: 0;
@@ -134,16 +159,30 @@
       width: 50px;
       height: 50px;
     }
+
+    .top-right-controls {
+      position: absolute;
+      top: 1.25rem;
+      /* espace en haut */
+      right: 1.25rem;
+      /* espace à droite */
+      display: flex;
+      align-items: center;
+      /* centre verticalement les boutons */
+      gap: 0.5rem;
+      z-index: 10;
+    }
   </style>
 </head>
 
 <body>
-  <div class="has-text-right p-4 buttons are-small is-right">
+  <div class="top-right-controls has-text-right p-1 buttons are-small">
     <button id="darkModeBtn" class="button is-primary" onclick="toggleDarkMode()">
       <i class="fas fa-moon"></i>
     </button>
     <button id="langToggleBtn" class="button is-link" onclick="toggleLanguage()">EN</button>
   </div>
+
 
   <!-- Header -->
   <section class="hero is-fullheight-with-navbar">
@@ -505,6 +544,26 @@
             </p>
           </div>
         </div>
+
+        <div class="column is-half">
+          <div class="box portfolio-item" onclick="openModal('modalBlazorCalendar')">
+            <h4 class="title is-4">
+              <span class="lang-fr">Conception de module Blazor – Calendrier</span>
+              <span class="lang-en" style="display: none;">Blazor Module – Calendar Design</span>
+            </h4>
+            <p>
+              <span class="lang-fr">
+                Création d’un calendrier interactif avec événements récurrents, basé sur Blazor, Radzen et une
+                architecture VB.NET modulaire.
+              </span>
+              <span class="lang-en" style="display: none;">
+                Design of an interactive calendar with recurring events, built with Blazor, Radzen and a modular VB.NET
+                backend.
+              </span>
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -516,6 +575,9 @@
       <h4 class="title is-4">
         <span class="lang-fr">Migration de librairies .Net</span>
         <span class="lang-en" style="display: none">.Net Library Migration</span>
+
+        <p class="subtitle is-6 lang-fr">DRC Solutions Inc. 2024</p>
+        <p class="subtitle is-6 lang-en" style="display:none;">DRC Solutions Inc. 2024</p>
       </h4>
       <p class="lang-fr">
         Après avoir reproduit les différents modules du logiciel comptable DRC-PRO en ASP.NET, ma tâche a évolué
@@ -551,6 +613,8 @@
       <h4 class="title is-4">
         <span class="lang-fr">Module de soumission Wordpress API</span>
         <span class="lang-en" style="display: none">WordPress Quote Form Module</span>
+        <p class="subtitle is-6 lang-fr">DRC Solutions Inc. Juillet 2024</p>
+        <p class="subtitle is-6 lang-en" style="display:none;">DRC Solutions Inc. July 2024</p>
       </h4>
       <p class="lang-fr">
         J'ai entièrement conçu et développé un formulaire de soumission sur mesure en Blazor pour une entreprise
@@ -938,6 +1002,83 @@
     <button class="modal-close is-large" aria-label="close" onclick="closeModal('modalAgentRdv')"></button>
   </div>
 
+  <div id="modalBlazorCalendar" class="modal">
+    <div class="modal-background" onclick="closeModal('modalBlazorCalendar')"></div>
+    <div class="modal-content box">
+      <h4 class="title is-4 lang-fr">Conception de module Blazor – Calendrier interactif</h4>
+      <h4 class="title is-4 lang-en" style="display:none;">Blazor Module Design – Interactive Calendar</h4>
+
+      <p class="subtitle is-6 lang-fr">DRC Solutions Inc. Juillet 2025</p>
+      <p class="subtitle is-6 lang-en" style="display:none;">DRC Solutions Inc. July 2025</p>
+      <p class="lang-fr">
+        Dans le cadre d’un projet structurant chez DRC Solutions pour une nouvelle application Blazor DRC-PRO, j’ai
+        conçu un
+        module de calendrier
+        interactif en Blazor,
+        basé sur le composant <strong>RadzenScheduler</strong>. Ce module permet de visualiser dynamiquement des
+        événements
+        liés à des documents, des tâches ou des rendez-vous clients.
+      </p>
+
+      <p class="lang-fr">
+        J’ai d’abord conçu l’architecture du module en créant les objets métier (événements, répétitions, types, etc.)
+        dans des projets Core séparés en VB.NET pour s'adapter à la structure originale de l'application, selon une
+        logique modulaire.
+        J’ai ensuite développé <strong>les managers</strong> et <strong>les vues personnalisées</strong> pour gérer les
+        événements récurrents,
+        en tenant compte des relations entre objets via des <strong>foreign keys dynamiques</strong>.
+      </p>
+
+      <p class="lang-fr">
+        Côté frontend, j’ai utilisé la bibliothèque <strong>Radzen.Blazor</strong> pour construire un calendrier
+        interactif
+        (<code>RadzenScheduler</code>), que j’ai adapté pour gérer dynamiquement les couleurs, les types d’événements,
+        et la génération d’occurrences répétées.
+        L’interface est conçue pour être extensible et permettre éventuellement l’ajout ou la modification d’événements
+        en temps réel.
+      </p>
+
+      <p class="lang-fr">
+        Ce projet m’a permis de mieux structurer la logique de séparation des couches (modèle, service, UI),
+        et de rendre le code réutilisable pour d’autres modules internes.
+      </p>
+
+      <p class="lang-en" style="display:none;">
+        As part of a business application project, I designed an interactive calendar module in Blazor,
+        using the <strong>RadzenScheduler</strong> component. This module displays dynamic events linked to documents,
+        tasks,
+        or client appointments.
+      </p>
+
+      <p class="lang-en" style="display:none;">
+        I first designed the architecture by creating business models (events, repetitions, types, etc.)
+        in separate Core projects using VB.NET, following a modular logic.
+        I then developed <strong>managers</strong> and <strong>custom views</strong> to handle recurring events,
+        including dynamic foreign key relations (Work, Doc, Note, etc.).
+      </p>
+
+      <p class="lang-en" style="display:none;">
+        On the frontend, I used the <strong>Radzen.Blazor</strong> component library to build an interactive calendar
+        (<code>RadzenScheduler</code>), which I customized to support dynamic coloring, event typing, and the generation
+        of recurring occurrences.
+        The UI is designed to be extensible and eventually support real-time event creation and editing.
+      </p>
+
+      <p class="lang-en" style="display:none;">
+        This project helped me improve the layering of model, service and UI logic, making the code reusable for other
+        internal modules.
+      </p>
+
+      <div class="columns mt-2 is-multiline">
+        <div class="column is-12">
+          <a href="img/BlazorCalendar.png" target="_blank">
+            <img src="img/BlazorCalendar.png" alt="BlazorCalendar" class="image">
+          </a>
+        </div>
+      </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close" onclick="closeModal('modalBlazorCalendar')"></button>
+  </div>
 
 
   <!-- Contact -->
